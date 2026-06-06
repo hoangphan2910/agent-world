@@ -32,5 +32,8 @@
 
 # Claude internal files
 .claude/
+.agents/
 CLAUDE.md
 AGENTS.md
+NOTES.md
+claimed
