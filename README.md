@@ -1,57 +1,93 @@
-# Sample Hardhat 3 Project (`node:test` and `viem`)
+# AgentWorld
 
-This project showcases a Hardhat 3 project using the native Node.js test runner (`node:test`) and the `viem` library for Ethereum interactions.
+**The first AI Agent platform where your agent grows, earns, and trades on ARC.**
 
-To learn more about Hardhat 3, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3](https://hardhat.org/hardhat3-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+Each agent is a unique NFT that gains real on-chain capabilities through quests — not just a collectible, but an evolving autonomous entity built for the agentic economy.
 
-## Project Overview
+---
 
-This example project includes:
+## What makes AgentWorld different?
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using [`node:test`](nodejs.org/api/test.html), the new Node.js native test runner, and [`viem`](https://viem.sh/).
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+Most AI agent projects are either pure collectibles with no utility, or DeFi tools with no identity. AgentWorld combines both:
 
-## Usage
+- **Own an agent** — mint a unique NFT with on-chain identity
+- **Level it up** — complete quests to unlock real features and boost stats
+- **Trade it** — agents with rare features and high reputation are worth more
+- **Scale it** — Phase 2 integrates real AI execution, agents trade and earn autonomously
 
-### Running Tests
+---
 
-To run all the tests in the project, execute the following command:
+## How it works
 
-```shell
-npx hardhat test
+```
+Mint Agent (0.01 USDC)
+      ↓
+Agent gets on-chain identity via ERC-8004
+      ↓
+Take quests → USDC reward locked in ERC-8183 escrow
+      ↓
+Complete quest → unlock features + boost stats + gain reputation
+      ↓
+Higher-tier agents access exclusive quests and earn more
 ```
 
-You can also selectively run the Solidity or `node:test` tests:
+---
 
-```shell
-npx hardhat test solidity
-npx hardhat test nodejs
-```
+## Feature System
 
-### Make a deployment to Sepolia
+Agents unlock capabilities across 3 tiers through quests:
 
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
+| Tier | Features | How to get |
+|------|----------|------------|
+| **Base** | Accept Jobs, Market Analysis, News Reader | Available on mint |
+| **Tier 2** | Risk Scoring, Task Scheduler, Agent-to-Agent, Escrow Manager | Complete quests |
+| **Tier 3 (Rare)** | Yield Optimizer, Auto Trade, Smart Swap | Complete hard quests |
 
-To run the deployment to a local chain:
+Stats (`speed`, `accuracy`, `power`) grow with every quest — enforced on-chain, not just cosmetic.
 
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
-```
+---
 
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
+## Built natively on ARC
 
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
+AgentWorld is designed around ARC's agentic economy standards:
 
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
+- **ERC-8004** — every agent has a verified on-chain identity and reputation score
+- **ERC-8183** — quest rewards are held in trustless USDC escrow, released on completion
+- **USDC-native** — no volatile gas token, predictable costs for agents and users
 
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
-```
+---
 
-After setting the variable, you can run the deployment with the Sepolia network:
+## Live on ARC Testnet
 
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
-```
+| Contract | Address |
+|----------|---------|
+| AgentNFT | [`0xfcff9401f3201f61aebd4741a48da15d535358f5`](https://testnet.arcscan.app/address/0xfcff9401f3201f61aebd4741a48da15d535358f5) |
+| MissionBoard | [`0x5cd99848fb337907e10e07f384dac35d0cc80f49`](https://testnet.arcscan.app/address/0x5cd99848fb337907e10e07f384dac35d0cc80f49) |
+| FeatureRegistry | [`0xe7e1187828dc0b96bd43367ea278c32d8b1a9208`](https://testnet.arcscan.app/address/0xe7e1187828dc0b96bd43367ea278c32d8b1a9208) |
+
+First agents already minted and registered on ERC-8004 IdentityRegistry.
+
+---
+
+## Roadmap
+
+**Phase 1 — Now**
+- Agent NFT with on-chain identity (ERC-8004)
+- Quest system with USDC escrow (ERC-8183)
+- Feature unlock + stat progression
+- Agent marketplace
+
+**Phase 2 — After funding**
+- AI bot integration (Claude API)
+- Agents autonomously execute: yield farming, token swaps, on-chain tasks
+- Agent-to-agent hiring via ERC-8183
+- Revenue sharing for agent owners
+
+---
+
+## Contact
+
+Built by an independent team focused on real utility in the agentic economy.
+
+- **X:** [@hanpan2910](https://x.com/hanpan2910)
+- **Email:** huyhoangphan2910@gmail.com
