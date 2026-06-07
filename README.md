@@ -1,63 +1,26 @@
 # AgentWorld
 
-**The first AI Agent platform where your agent grows, earns, and trades on ARC.**
+**An AI Agent NFT platform on the ARC blockchain — mint, train, and trade.**
 
-Each agent is a unique NFT that gains real on-chain capabilities through quests — not just a collectible, but an evolving autonomous entity built for the agentic economy.
-
----
-
-## What makes AgentWorld different?
-
-Most AI agent projects are either pure collectibles with no utility, or DeFi tools with no identity. AgentWorld combines both:
-
-- **Own an agent** — mint a unique NFT with on-chain identity
-- **Level it up** — complete quests to unlock real features and boost stats
-- **Trade it** — agents with rare features and high reputation are worth more
-- **Scale it** — Phase 2 integrates real AI execution, agents trade and earn autonomously
+### Concept
+AgentWorld turns AI agents into ownable NFTs. Each agent has its own stats (speed, accuracy, power), can take on quests, build reputation, and unlock new capabilities — like raising a character, except it's a real on-chain asset.
 
 ---
 
-## How it works
-
-```
-Mint Agent (0.01 USDC)
-      ↓
-Agent gets on-chain identity via ERC-8004
-      ↓
-Take quests → USDC reward locked in ERC-8183 escrow
-      ↓
-Complete quest → unlock features + boost stats + gain reputation
-      ↓
-Higher-tier agents access exclusive quests and earn more
-```
+### Why ARC?
+ARC is a blockchain built for real-world finance and stablecoin payments. AgentWorld leverages ARC's native standards — **ERC-8004** (on-chain agent identity) and **ERC-8183** (job/quest lifecycle) — giving every agent a transparent, verifiable identity that can actually "work" within the ecosystem.
 
 ---
 
-## Feature System
-
-Agents unlock capabilities across 3 tiers through quests:
-
-| Tier | Features | How to get |
-|------|----------|------------|
-| **Base** | Accept Jobs, Market Analysis, News Reader | Available on mint |
-| **Tier 2** | Risk Scoring, Task Scheduler, Agent-to-Agent, Escrow Manager | Complete quests |
-| **Tier 3 (Rare)** | Yield Optimizer, Auto Trade, Smart Swap | Complete hard quests |
-
-Stats (`speed`, `accuracy`, `power`) grow with every quest — enforced on-chain, not just cosmetic.
+### How it works
+1. **Mint** — pay 0.01 USDC to create an AI Agent NFT, automatically registered with an on-chain identity
+2. **Take on quests** — agents complete missions, with USDC locked in escrow and released on completion, earning reputation along the way
+3. **Level up** — reputation unlocks more powerful features over time
+4. **Trade** — agents are NFTs and can be bought, sold, and collected like any digital asset
 
 ---
 
-## Built natively on ARC
-
-AgentWorld is designed around ARC's agentic economy standards:
-
-- **ERC-8004** — every agent has a verified on-chain identity and reputation score
-- **ERC-8183** — quest rewards are held in trustless USDC escrow, released on completion
-- **USDC-native** — no volatile gas token, predictable costs for agents and users
-
----
-
-## Live on ARC Testnet
+### Live on ARC Testnet
 
 | Contract | Address |
 |----------|---------|
@@ -65,27 +28,16 @@ AgentWorld is designed around ARC's agentic economy standards:
 | MissionBoard | [`0x5cd99848fb337907e10e07f384dac35d0cc80f49`](https://testnet.arcscan.app/address/0x5cd99848fb337907e10e07f384dac35d0cc80f49) |
 | FeatureRegistry | [`0xe7e1187828dc0b96bd43367ea278c32d8b1a9208`](https://testnet.arcscan.app/address/0xe7e1187828dc0b96bd43367ea278c32d8b1a9208) |
 
-First agents already minted and registered on ERC-8004 IdentityRegistry.
+First agents already minted and registered on the ERC-8004 IdentityRegistry.
 
 ---
 
-## Roadmap
-
-**Phase 1 — Now**
-- Agent NFT with on-chain identity (ERC-8004)
-- Quest system with USDC escrow (ERC-8183)
-- Feature unlock + stat progression
-- Agent marketplace
-
-**Phase 2 — After funding**
-- AI bot integration (Claude API)
-- Agents autonomously execute: yield farming, token swaps, on-chain tasks
-- Agent-to-agent hiring via ERC-8183
-- Revenue sharing for agent owners
+### Vision
+Next phase: give each agent a real AI "brain" — capable of analyzing markets, making decisions, and executing trades within limits set by its owner.
 
 ---
 
-## Contact
+### Contact
 
 Built by an independent team focused on real utility in the agentic economy.
 
