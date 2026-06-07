@@ -180,4 +180,103 @@ describe("AgentWorld", async function () {
       "Only evaluator"
     );
   });
+
+  // --- Các test "tấn công" kiểm chứng những lỗ hổng đã được vá ---
+
+  it("[security] client không thể tự đặt mình làm evaluator (self-deal)", async function () {
+    const { user, usdc, agentNFT, missionBoard } = await networkHelpers.loadFixture(deploy);
+    await mintAgent(usdc, agentNFT, user);
+
+    const reward = 1000000n;
+    await usdc.write.mint([user.account.address, 5000000n]);
+    await usdc.write.approve([missionBoard.address, reward], { account: user.account });
+
+    await viem.assertions.revertWith(
+      missionBoard.write.createQuest(
+        [1n, user.account.address, reward, 3600n, "Quest", "risk_scoring", "", 0],
+        { account: user.account }
+      ),
+      "Evaluator cannot be client"
+    );
+  });
+
+  it("[security] chủ agent không thể đặt chính mình làm evaluator qua người khác đứng tên client", async function () {
+    const { user, stranger, usdc, agentNFT, missionBoard } = await networkHelpers.loadFixture(deploy);
+    await mintAgent(usdc, agentNFT, user); // user là chủ token 1
+
+    const reward = 1000000n;
+    await usdc.write.mint([stranger.account.address, 5000000n]);
+    await usdc.write.approve([missionBoard.address, reward], { account: stranger.account });
+
+    // stranger tạo quest cho agent của user, nhưng cố đặt evaluator = user (chủ agent)
+    await viem.assertions.revertWith(
+      missionBoard.write.createQuest(
+        [1n, user.account.address, reward, 3600n, "Quest", "risk_scoring", "", 0],
+        { account: stranger.account }
+      ),
+      "Evaluator cannot be agent owner"
+    );
+  });
+
+  it("[security] client lấy lại được USDC khi quest hết hạn mà evaluator không duyệt", async function () {
+    const { user, evaluator, usdc, agentNFT, missionBoard } = await networkHelpers.loadFixture(deploy);
+    await mintAgent(usdc, agentNFT, user);
+
+    const reward = 1000000n;
+    await usdc.write.mint([user.account.address, 5000000n]);
+    const balanceBefore = await usdc.read.balanceOf([user.account.address]);
+
+    await usdc.write.approve([missionBoard.address, reward], { account: user.account });
+    await missionBoard.write.createQuest(
+      [1n, evaluator.account.address, reward, 3600n, "Quest", "risk_scoring", "", 0],
+      { account: user.account }
+    );
+
+    // Chưa hết hạn → không hủy được
+    await viem.assertions.revertWith(
+      missionBoard.write.cancelQuest([1n], { account: user.account }),
+      "Quest not expired"
+    );
+
+    // Tua thời gian qua khỏi deadline (3600s)
+    await networkHelpers.time.increase(3601);
+
+    await missionBoard.write.cancelQuest([1n], { account: user.account });
+
+    const balanceAfter = await usdc.read.balanceOf([user.account.address]);
+    assert.equal(balanceAfter, balanceBefore - reward + reward); // hoàn lại đủ reward
+    assert.equal(balanceAfter, balanceBefore);
+
+    // Không thể hủy hai lần / không thể hoàn thành sau khi đã hủy
+    await viem.assertions.revertWith(
+      missionBoard.write.cancelQuest([1n], { account: user.account }),
+      "Quest closed"
+    );
+    await viem.assertions.revertWith(
+      missionBoard.write.completeQuest([1n], { account: evaluator.account }),
+      "Quest closed"
+    );
+  });
+
+  it("[security] không thể hoàn thành quest đã bị hủy, kể cả trước hạn nếu trạng thái đã đóng", async function () {
+    const { user, evaluator, usdc, agentNFT, missionBoard } = await networkHelpers.loadFixture(deploy);
+    await mintAgent(usdc, agentNFT, user);
+
+    const reward = 1000000n;
+    await usdc.write.mint([user.account.address, 5000000n]);
+    await usdc.write.approve([missionBoard.address, reward], { account: user.account });
+    await missionBoard.write.createQuest(
+      [1n, evaluator.account.address, reward, 3600n, "Quest", "risk_scoring", "", 0],
+      { account: user.account }
+    );
+
+    await missionBoard.write.completeQuest([1n], { account: evaluator.account });
+
+    // Sau khi hoàn thành, không thể hủy (kể cả khi hết hạn)
+    await networkHelpers.time.increase(3601);
+    await viem.assertions.revertWith(
+      missionBoard.write.cancelQuest([1n], { account: user.account }),
+      "Quest closed"
+    );
+  });
 });

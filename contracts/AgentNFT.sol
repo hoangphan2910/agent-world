@@ -4,16 +4,16 @@ pragma solidity ^0.8.28;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-
-interface IERC20 {
-    function transferFrom(address from, address to, uint256 amount) external returns (bool);
-}
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 interface IIdentityRegistry {
     function register(string calldata metadataURI) external returns (uint256);
 }
 
 contract AgentNFT is ERC721, IERC721Receiver, Ownable {
+    using SafeERC20 for IERC20;
+
     uint256 public constant MAX_SUPPLY = 100;
     uint256 public constant MINT_PRICE = 10000; // 0.01 USDC (6 decimals)
     uint8 public constant MAX_STAT = 100;
@@ -44,6 +44,7 @@ contract AgentNFT is ERC721, IERC721Receiver, Ownable {
     event FeatureUnlocked(uint256 indexed tokenId, string feature);
     event TitleUpdated(uint256 indexed tokenId, string title);
     event StatsUpdated(uint256 indexed tokenId, uint8 speed, uint8 accuracy, uint8 power);
+    event MissionBoardUpdated(address indexed missionBoard);
 
     modifier onlyMissionBoard() {
         require(msg.sender == missionBoard, "Only MissionBoard");
@@ -62,11 +63,12 @@ contract AgentNFT is ERC721, IERC721Receiver, Ownable {
 
     function setMissionBoard(address _missionBoard) external onlyOwner {
         missionBoard = _missionBoard;
+        emit MissionBoardUpdated(_missionBoard);
     }
 
     function mint(string calldata metadataURI) external {
         require(totalMinted < MAX_SUPPLY, "Sold out");
-        require(IERC20(usdc).transferFrom(msg.sender, owner(), MINT_PRICE), "Payment failed");
+        IERC20(usdc).safeTransferFrom(msg.sender, owner(), MINT_PRICE);
 
         uint256 tokenId = totalMinted + 1;
         totalMinted++;

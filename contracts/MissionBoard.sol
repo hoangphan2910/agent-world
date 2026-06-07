@@ -26,6 +26,7 @@ struct AgentData {
 }
 
 interface IAgentNFT {
+    function ownerOf(uint256 tokenId) external view returns (address);
     function unlockFeature(uint256 tokenId, string calldata feature) external;
     function updateTitle(uint256 tokenId, string calldata title) external;
     function updateStats(uint256 tokenId, uint8 speed, uint8 accuracy, uint8 power) external;
@@ -40,12 +41,13 @@ interface IFeatureRegistry {
     function getReputation(string calldata id) external view returns (int128);
 }
 
-interface IERC20 {
-    function approve(address spender, uint256 amount) external returns (bool);
-    function transferFrom(address from, address to, uint256 amount) external returns (bool);
-}
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
-contract MissionBoard {
+contract MissionBoard is ReentrancyGuard {
+    using SafeERC20 for IERC20;
+
     address public immutable agenticCommerce; // ERC-8183
     address public immutable reputationRegistry; // ERC-8004
     address public immutable usdc;
@@ -66,7 +68,9 @@ contract MissionBoard {
         string featureReward;  // feature unlock khi hoàn thành (phải có trong FeatureRegistry)
         string titleReward;
         uint8 statBoost;
+        uint256 deadline;
         bool completed;
+        bool cancelled;
     }
 
     mapping(uint256 => Quest) public quests;
@@ -78,6 +82,8 @@ contract MissionBoard {
     event QuestCreated(uint256 indexed questId, uint256 indexed tokenId, string featureReward, uint256 reward);
     event QuestSubmitted(uint256 indexed questId, bytes32 deliverableHash);
     event QuestCompleted(uint256 indexed questId, uint256 indexed tokenId, string featureReward);
+    event QuestCancelled(uint256 indexed questId, uint256 indexed tokenId, address indexed client, uint256 refunded);
+    event AgentNFTUpdated(address indexed agentNFT);
 
     modifier onlyOwner() {
         require(msg.sender == owner, "Only owner");
@@ -102,30 +108,38 @@ contract MissionBoard {
         string calldata featureReward,
         string calldata titleReward,
         uint8 statBoost
-    ) external returns (uint256 questId) {
+    ) external nonReentrant returns (uint256 questId) {
         require(reward > 0, "Reward required");
 
         // Validate feature phải có trong FeatureRegistry
         require(IFeatureRegistry(featureRegistry).isValid(featureReward), "Invalid feature");
 
         // Enforce power: agent chỉ nhận tối đa (power/10) quest cùng lúc, tối thiểu 1
+        // (getPower revert "Agent does not exist" nếu tokenId không tồn tại)
         uint8 power = IAgentNFT(agentNFT).getPower(tokenId);
+
+        // Evaluator phải là bên độc lập: không phải client và không phải chủ agent
+        // (chống self-dealing: tự tạo quest rồi tự đánh giá để farm feature/stat/reputation)
+        require(evaluator != address(0), "Evaluator required");
+        require(evaluator != msg.sender, "Evaluator cannot be client");
+        require(evaluator != IAgentNFT(agentNFT).ownerOf(tokenId), "Evaluator cannot be agent owner");
         uint256 maxConcurrent = power / 10;
         if (maxConcurrent == 0) maxConcurrent = 1;
         require(activeQuestCount[tokenId] < maxConcurrent, "Agent at max concurrent quests");
 
-        require(IERC20(usdc).transferFrom(msg.sender, address(this), reward), "USDC transfer failed");
+        IERC20(usdc).safeTransferFrom(msg.sender, address(this), reward);
 
+        uint256 deadline = block.timestamp + durationSeconds;
         uint256 jobId = IAgenticCommerce(agenticCommerce).createJob(
             address(this),
             evaluator,
-            block.timestamp + durationSeconds,
+            deadline,
             description,
             address(0)
         );
 
         IAgenticCommerce(agenticCommerce).setBudget(jobId, reward, "");
-        IERC20(usdc).approve(agenticCommerce, reward);
+        IERC20(usdc).forceApprove(agenticCommerce, reward);
         IAgenticCommerce(agenticCommerce).fund(jobId, "");
 
         activeQuestCount[tokenId]++;
@@ -140,24 +154,44 @@ contract MissionBoard {
             featureReward: featureReward,
             titleReward: titleReward,
             statBoost: statBoost,
-            completed: false
+            deadline: deadline,
+            completed: false,
+            cancelled: false
         });
 
         emit QuestCreated(questId, tokenId, featureReward, reward);
     }
 
-    function submitQuest(uint256 questId, bytes32 deliverableHash) external {
+    function submitQuest(uint256 questId, bytes32 deliverableHash) external nonReentrant {
         Quest storage q = quests[questId];
-        require(!q.completed, "Already completed");
+        require(!q.completed && !q.cancelled, "Quest closed");
 
         IAgenticCommerce(agenticCommerce).submit(q.erc8183JobId, deliverableHash, "");
         emit QuestSubmitted(questId, deliverableHash);
     }
 
-    function completeQuest(uint256 questId) external {
+    // Cho phép client thu hồi USDC nếu quest hết hạn mà evaluator chưa hoàn thành.
+    // Giả định agenticCommerce.fund() không kéo USDC ra khỏi MissionBoard (đúng với mock hiện tại);
+    // nếu triển khai thật có escrow riêng, refund cần đi qua agenticCommerce thay vì balance tại đây.
+    function cancelQuest(uint256 questId) external nonReentrant {
+        Quest storage q = quests[questId];
+        require(!q.completed && !q.cancelled, "Quest closed");
+        require(msg.sender == q.client, "Only client");
+        require(block.timestamp > q.deadline, "Quest not expired");
+
+        q.cancelled = true;
+        activeQuestCount[q.tokenId]--;
+
+        uint256 refund = q.reward;
+        IERC20(usdc).safeTransfer(q.client, refund);
+
+        emit QuestCancelled(questId, q.tokenId, q.client, refund);
+    }
+
+    function completeQuest(uint256 questId) external nonReentrant {
         Quest storage q = quests[questId];
         require(msg.sender == q.evaluator, "Only evaluator");
-        require(!q.completed, "Already completed");
+        require(!q.completed && !q.cancelled, "Quest closed");
 
         q.completed = true;
         activeQuestCount[q.tokenId]--;
@@ -202,5 +236,6 @@ contract MissionBoard {
 
     function setAgentNFT(address _agentNFT) external onlyOwner {
         agentNFT = _agentNFT;
+        emit AgentNFTUpdated(_agentNFT);
     }
 }
