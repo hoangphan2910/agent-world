@@ -24,9 +24,9 @@ ARC is a blockchain built for real-world finance and stablecoin payments. AgentW
 
 | Contract | Address |
 |----------|---------|
-| AgentNFT | [`0xfcff9401f3201f61aebd4741a48da15d535358f5`](https://testnet.arcscan.app/address/0xfcff9401f3201f61aebd4741a48da15d535358f5) |
-| MissionBoard | [`0x5cd99848fb337907e10e07f384dac35d0cc80f49`](https://testnet.arcscan.app/address/0x5cd99848fb337907e10e07f384dac35d0cc80f49) |
-| FeatureRegistry | [`0xe7e1187828dc0b96bd43367ea278c32d8b1a9208`](https://testnet.arcscan.app/address/0xe7e1187828dc0b96bd43367ea278c32d8b1a9208) |
+| AgentNFT | [`0xba87497dc58ad99b5989f4f1a205c0dbed0dae3e`](https://testnet.arcscan.app/address/0xba87497dc58ad99b5989f4f1a205c0dbed0dae3e) |
+| MissionBoard | [`0xdbe273a1aeadbe097a3bea11b36713a1c2d535cb`](https://testnet.arcscan.app/address/0xdbe273a1aeadbe097a3bea11b36713a1c2d535cb) |
+| FeatureRegistry | [`0x47534c23e5b1b83f6a5b7376a09136281232d80a`](https://testnet.arcscan.app/address/0x47534c23e5b1b83f6a5b7376a09136281232d80a) |
 
 First agents already minted and registered on the ERC-8004 IdentityRegistry.
 

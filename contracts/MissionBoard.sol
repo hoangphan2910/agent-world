@@ -7,6 +7,7 @@ interface IAgenticCommerce {
     function fund(uint256 jobId, bytes calldata optParams) external;
     function submit(uint256 jobId, bytes32 deliverableHash, bytes calldata optParams) external;
     function complete(uint256 jobId, bytes32 reasonHash, bytes calldata optParams) external;
+    function claimRefund(uint256 jobId) external;
 }
 
 interface IReputationRegistry {
@@ -171,8 +172,9 @@ contract MissionBoard is ReentrancyGuard {
     }
 
     // Cho phép client thu hồi USDC nếu quest hết hạn mà evaluator chưa hoàn thành.
-    // Giả định agenticCommerce.fund() không kéo USDC ra khỏi MissionBoard (đúng với mock hiện tại);
-    // nếu triển khai thật có escrow riêng, refund cần đi qua agenticCommerce thay vì balance tại đây.
+    // AgenticCommerce giữ USDC trong escrow riêng của nó sau fund(), không phải trong
+    // MissionBoard — nên phải gọi claimRefund() để kéo tiền về MissionBoard (với vai trò
+    // job.client) trước khi chuyển tiếp cho client thật của quest.
     function cancelQuest(uint256 questId) external nonReentrant {
         Quest storage q = quests[questId];
         require(!q.completed && !q.cancelled, "Quest closed");
@@ -181,6 +183,9 @@ contract MissionBoard is ReentrancyGuard {
 
         q.cancelled = true;
         activeQuestCount[q.tokenId]--;
+
+        // Kéo USDC từ escrow của AgenticCommerce về MissionBoard (MissionBoard là job.client)
+        IAgenticCommerce(agenticCommerce).claimRefund(q.erc8183JobId);
 
         uint256 refund = q.reward;
         IERC20(usdc).safeTransfer(q.client, refund);

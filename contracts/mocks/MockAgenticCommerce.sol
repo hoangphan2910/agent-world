@@ -12,6 +12,7 @@ contract MockAgenticCommerce {
     event Funded(uint256 indexed jobId);
     event Submitted(uint256 indexed jobId, bytes32 deliverableHash);
     event Completed(uint256 indexed jobId);
+    event RefundClaimed(uint256 indexed jobId);
 
     function createJob(
         address provider,
@@ -39,5 +40,9 @@ contract MockAgenticCommerce {
 
     function complete(uint256 jobId, bytes32, bytes calldata) external {
         emit Completed(jobId);
+    }
+
+    function claimRefund(uint256 jobId) external {
+        emit RefundClaimed(jobId);
     }
 }

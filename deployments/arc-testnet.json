@@ -1,13 +1,33 @@
 {
   "network": "arc-testnet",
   "chainId": 5042002,
-  "deployedAt": "2026-06-07",
+  "deployedAt": "2026-06-08",
   "deployer": "0x26DB6e7a9285F7281f68335403fc21cAaE62Af83",
   "contracts": {
-    "FeatureRegistry": "0xe7e1187828dc0b96bd43367ea278c32d8b1a9208",
-    "AgentNFT": "0xfcff9401f3201f61aebd4741a48da15d535358f5",
-    "MissionBoard": "0x5cd99848fb337907e10e07f384dac35d0cc80f49"
+    "FeatureRegistry": "0x47534c23e5b1b83f6a5b7376a09136281232d80a",
+    "AgentNFT": "0xba87497dc58ad99b5989f4f1a205c0dbed0dae3e",
+    "MissionBoard": "0xdbe273a1aeadbe097a3bea11b36713a1c2d535cb"
   },
+  "previousDeployments": [
+    {
+      "deployedAt": "2026-06-08",
+      "note": "Redeployed again same day after fixing cancelQuest refund flow — must call AgenticCommerce.claimRefund() to pull escrow back before forwarding to client (real AgenticCommerce holds funds in its own escrow after fund(), unlike the mock)",
+      "contracts": {
+        "FeatureRegistry": "0xf779d203df708210821d4ca90f5ba89c8be49191",
+        "AgentNFT": "0x0f7d9aec711a78e12fe5c6666941f6c0aa63dbbc",
+        "MissionBoard": "0xd3c405b3b1c6eacc22b67da0fd75a7039fc10b11"
+      }
+    },
+    {
+      "deployedAt": "2026-06-07",
+      "note": "Original deploy, had self-dealing evaluator vulnerability (fixed in commit f007787)",
+      "contracts": {
+        "FeatureRegistry": "0xe7e1187828dc0b96bd43367ea278c32d8b1a9208",
+        "AgentNFT": "0xfcff9401f3201f61aebd4741a48da15d535358f5",
+        "MissionBoard": "0x5cd99848fb337907e10e07f384dac35d0cc80f49"
+      }
+    }
+  ],
   "arc": {
     "USDC": "0x3600000000000000000000000000000000000000",
     "IdentityRegistry_ERC8004": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
