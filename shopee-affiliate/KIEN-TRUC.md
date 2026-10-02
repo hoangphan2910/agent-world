@@ -1,6 +1,6 @@
 # KIẾN TRÚC DỰ ÁN SHOPEE AFFILIATE (7 NGÀY)
 
-> Phiên bản: v3.2 (thêm dữ liệu Hành Trình Nhà Sáng Tạo từ tài khoản thật). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
+> Phiên bản: v3.3 (sửa phần forex: tách người Việt / người nước ngoài, ghi rõ chỗ chưa chắc). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
 > Quy tắc: bước nào không ra hành động cụ thể thì bị loại.
 
 ---
@@ -255,7 +255,8 @@ Nguồn tra bằng search, là báo/bài tổng hợp, chưa phải văn bản l
 
 | Loại | Màu | Lý do |
 |---|---|---|
-| Forex, sàn ngoại hối | 🔴 LOẠI | Ngân hàng Nhà nước chưa cấp phép cho ai kinh doanh Forex ở VN. Người rủ rê có thể bị xử phạt, nặng thì hình sự (đa cấp) |
+| Forex cho **người Việt** | 🔴 LOẠI | Ngân hàng Nhà nước chưa cấp phép cho ai kinh doanh Forex ở VN. Rủ rê người Việt có thể bị xử phạt, nặng thì hình sự (đa cấp) |
+| Forex cho **người nước ngoài** (anh hỏi) | 🟠 VÙNG XÁM, CHƯA LÀM | Em KHÔNG tìm được nguồn nào nói thẳng "người Việt làm affiliate forex cho khách nước ngoài là vi phạm", cũng không có nguồn nói là hợp pháp. Luật VN cấm cá nhân kinh doanh ngoại hối và xử phạt cả hành vi môi giới/quảng bá (Nghị định 88/2019, phạt đến 30 triệu theo tra cứu). Chưa ai xác nhận việc giới thiệu khách nước ngoài có nằm ngoài cấm hay không. Thêm lớp luật của nước khách (Anh, EU, Úc) bắt buộc cảnh báo rủi ro, UK còn yêu cầu quảng cáo được công ty có phép duyệt. **Cần luật sư xác nhận trước khi làm.** |
 | Sàn tiền mã hóa (Binance, Bybit, Coinbase...) giới thiệu cho người Việt | 🔴 LOẠI | Nghị định 284/2026/NĐ-CP (hiệu lực 1/9/2026) phạt quảng cáo tài sản mã hóa chưa cấp phép: cá nhân khoảng 90–100 triệu đồng |
 | App vay lãi cao, đầu tư hứa lời | 🔴 LOẠI | Rủi ro lừa đảo, gây hại người xem |
 | Thẻ tín dụng, tài khoản ngân hàng, eKYC của **ngân hàng VN có giấy phép** (HDBank, VPBank...) | 🟢 LÀM ĐƯỢC | Sản phẩm hợp pháp, nhận qua Ecomobi/Accesstrade |
@@ -342,3 +343,9 @@ Anh gửi em tên 3 món thật đã chọn, em chỉnh chữ và caption cho đ
 - Hôm nay (thứ Sáu 2/10) = Ngày 1: đăng ít nhất 1 video để bắt đầu đếm ngày hoạt động.
 - Mỗi ngày đến thứ Ba 6/10: đăng ít nhất 1 video, ưu tiên 2–3.
 - Ưu tiên món **có nhãn Hoa Hồng Xtra** khi chọn sản phẩm (nếu app hiển thị).
+
+
+### Ghi chú sửa lỗi về Forex (v3.3)
+Bản trước em xếp chung Forex vào 🔴 LOẠI. Chỗ đó em nói quá. Tách đúng: cho người Việt thì chắc chắn rủi ro cao; cho người nước ngoài thì là vùng xám chưa có xác nhận.
+- Lợi nhuận forex nước ngoài là thật: CPA khoảng $200–$1.000+ mỗi người nạp tiền lần đầu theo tra cứu (chưa xác minh từng broker).
+- Nhưng cần khán giả đúng nước, nội dung tiếng Anh, tuân thủ quy định quảng cáo nước đó. Anh hiện chưa có khán giả này nên 7 ngày không làm được.
