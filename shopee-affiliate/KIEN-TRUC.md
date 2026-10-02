@@ -1,6 +1,6 @@
 # KIẾN TRÚC DỰ ÁN SHOPEE AFFILIATE (7 NGÀY)
 
-> Phiên bản: v2.1 (đã chốt ngân sách ads 500k). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
+> Phiên bản: v2.2 (thêm luật chống lỗ). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
 > Quy tắc: bước nào không ra hành động cụ thể thì bị loại.
 
 ---
@@ -101,3 +101,39 @@ Em không đoán thay chính sách. Em chỉ dựa trên điều anh gửi.
 | 5 | Nhóm hàng | Em tự chọn theo lợi nhuận | Chọn hàng giá thấp, bán chạy, có voucher |
 | 6 | Dạng nội dung | Không mặt, không giọng, ads/video đều được | Làm ảnh/clip ghép, không người thật |
 | 7 | Ngân sách ads | Tối đa ~500k | Ads là phương án dự phòng từ ngày 4, chỉ dùng khi điều khoản Shopee cho phép, chia nhỏ ~100k/lần thử |
+
+
+---
+
+## 8. CHỐNG LỖ (luật cứng, không ngoại lệ)
+
+### 8.1 Nguyên tắc
+- **Đăng bài miễn phí là cách chính.** Chi phí 0 đồng nên không thể lỗ tiền, tệ nhất là mất thời gian.
+- **Ads không phải để thử vận may.** Ads chỉ được bật khi phép tính ở 8.2 cho kết quả dương, dựa trên số đo thật từ traffic miễn phí.
+
+### 8.2 Công thức quyết định có chạy ads hay không
+```
+Tiền lời mỗi đơn      = giá món × % hoa hồng (đọc trong Shopee Affiliate, đừng đoán)
+Tiền thu mỗi click    = tiền lời mỗi đơn × tỉ lệ click ra đơn (đo từ báo cáo ngày 1–4)
+Giá click tối đa chịu được = tiền thu mỗi click
+```
+- Giá click thực tế của ads **thấp hơn** giá click tối đa → được chạy.
+- Giá click thực tế **cao hơn** → KHÔNG chạy, dù anh có 500k.
+
+### 8.3 Chọn món để phép tính có cơ hội dương
+- Ưu tiên món có **hoa hồng cao** và **giá cao hơn** (tiền lời mỗi đơn lớn), không chạy ads cho món vài chục nghìn.
+- Bỏ món hay bị hủy/hoàn (Shopee không trả hoa hồng đơn bị hủy).
+
+### 8.4 Cắt lỗ
+| Luật | Nội dung |
+|---|---|
+| Trần lỗ tối đa | **500k tổng, không nạp thêm** |
+| Mỗi lần thử | Tối đa 100k, chỉ 1 món, 1 bài |
+| Điều kiện dừng | Chi 100k mà 0 đơn **và** giá click cao hơn mức chịu được → dừng ngay, không thử tiếp bằng cách đó |
+| Điều kiện mở rộng | Chỉ tăng ngân sách khi một lần thử đã **có đơn và doanh thu lớn hơn chi phí** |
+| Ngày bắt đầu ads | Không trước ngày 4, và chỉ khi đã qua điều khoản Shopee (mục 6) |
+
+### 8.5 Số liệu anh cần gửi em để tính (em không đoán)
+1. % hoa hồng của từng món trong danh sách 10 món.
+2. Số click và số đơn trong báo cáo ngày 1–4.
+3. Giá mỗi click ads thực tế (nếu chạy thử).
