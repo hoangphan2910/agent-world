@@ -136,7 +136,7 @@ Khi có khóa API thật, bật chế độ thật thay chế độ dữ liệu 
 
 | Ngày | Mô-đun | Trạng thái | Bằng chứng |
 |---|---|---|---|
-| 1 | 1. Nhặt kèo (đọc CSV, lọc, chấm điểm, xếp hạng, ứng dụng gọi Shopee API) | ✅ Xong | 11/11 bài test qua; lệnh `python3 -m affiliate_flow.cli rank --input data/offers_sample.csv` ra bảng xếp hạng từ 20 kèo mẫu |
+| 1 | 1. Nhặt kèo (đọc CSV, lọc, chấm điểm, xếp hạng, ứng dụng gọi Shopee API) | ⚠️ CHỈ CHẠY TRÊN DỮ LIỆU GIẢ, chưa phải kết quả thật | 11/11 bài test qua; lệnh `python3 -m affiliate_flow.cli rank --input data/offers_sample.csv` ra bảng xếp hạng từ 20 kèo mẫu |
 
 **Chưa kiểm chứng ở Ngày 1:** phần gọi Shopee API thật. Code viết theo tài liệu tra cứu và đã test bằng kết nối giả, chưa chạm API thật vì cần AppId/Secret và mạng. Tên trường trả về của API em chưa xác minh, code đọc kiểu phòng thủ (trường thiếu thì bỏ qua, không sập).
 
@@ -144,3 +144,6 @@ Khi có khóa API thật, bật chế độ thật thay chế độ dữ liệu 
 `điểm = hoa hồng mỗi đơn (có trần 70.000đ) × log(1 + số đã bán) × (sao đánh giá / 5)`
 Bộ lọc mặc định: giá 100–250k, sao từ 4.5, đã bán từ 100.
 Dữ liệu mẫu `data/offers_sample.csv` là dữ liệu GIẢ (tên có chữ [MAU]), không phải sản phẩm thật.
+
+
+**Nhận định thẳng (sau phản hồi của anh):** Ngày 1 chạy trên 20 món giả và API chưa chạm thật nên chưa chứng minh được gì về thế giới thật. Mọi mô-đun sau cũng sẽ "ảo" nếu không có dữ liệu thật đi vào. Quy tắc mới: **không build mô-đun nào tiếp cho đến khi có dữ liệu thật đầu vào**, và mỗi bước phải cho ra kết quả trên dữ liệu thật.
