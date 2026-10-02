@@ -1,375 +1,117 @@
-# KIẾN TRÚC DỰ ÁN SHOPEE AFFILIATE (7 NGÀY)
+# KIẾN TRÚC DỰ ÁN AFFILIATE ĐA NHÁNH (7 NGÀY)
 
-> Phiên bản: v3.4 (thêm đánh giá tổng quan, khóa việc giao). Trước đó v3.3 (sửa phần forex: tách người Việt / người nước ngoài, ghi rõ chỗ chưa chắc). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
-> Quy tắc: bước nào không ra hành động cụ thể thì bị loại.
-
-
-> ⛔ **TRẠNG THÁI: CHƯA GIAO VIỆC NÀO CHO ANH.** Mọi mục "việc của anh / việc cần làm" bên dưới là bản nháp kiến trúc, chỉ có hiệu lực SAU KHI anh duyệt đánh giá tổng quan (mục 0).
-> Chưa build gì.
-
-## 0. ĐÁNH GIÁ TỔNG QUAN (kiến trúc có ra được kết quả thật không?)
-
-Mục tiêu: 1 đơn Shopee được ghi nhận trong 7 ngày, chi phí 0 đồng.
-
-| Mắt xích | Bằng chứng hiện có | Trạng thái |
-|---|---|---|
-| Tài khoản affiliate được duyệt | Anh xác nhận | ✅ |
-| Tài khoản đăng được Shopee Video | Ảnh có nút Đăng video, Kênh Người sáng tạo | ✅ |
-| Gắn sản phẩm vào video có tính hoa hồng | Chưa thấy tận mắt nút gắn sản phẩm; bài tra cứu nói phải bật tính năng gắn link | ❓ Chưa biết |
-| Video có người xem | Bài tra cứu: video mới được phát thử ngẫu nhiên, sau đó xét giữ chân và tương tác. Tài khoản có 12 người theo dõi | ❓ Chưa biết |
-| Người xem bấm và mua | Chưa có dữ liệu | ❓ Chưa biết |
-| Lỗ tiền | Làm miễn phí, không ads | ✅ Không lỗ tiền |
-| Có tiền về trong 7 ngày | Shopee giữ đơn khoảng 15 ngày | ❌ Không (mục tiêu đã chốt là đơn ghi nhận) |
-
-**Kết luận:** kiến trúc có đường đi tới kết quả thật và không tốn tiền, nhưng 3 mắt xích giữa vẫn chưa có bằng chứng. Em không đưa xác suất vì em không có dữ liệu để tính, nói con số là bịa. Cả 3 mắt xích chỉ kiểm chứng được bằng đăng thử video. Nếu mắt xích nào đứt thì kiến trúc đổi hướng theo bảng ở mục 9.
-
-Đã gạt khỏi kế hoạch 7 ngày: ads cho Shopee (lỗ), forex/crypto (pháp lý), tài chính nước ngoài (cần khán giả tiếng Anh). Tài chính trong nước giữ làm nhánh phụ chưa kích hoạt.
-
-Không build công cụ nào: chưa chứng minh được kênh ra click.
+> Phiên bản: v4. Đập và dựng lại theo ý anh: không bám Shopee, chạy nhiều nhánh để tối ưu hoa hồng.
+> Trạng thái: **CHƯA GIAO VIỆC, CHƯA BUILD.** Mọi bước ở mục 6 chỉ có hiệu lực sau khi anh duyệt.
+> Nguồn số liệu: kết quả tìm kiếm trên báo/bài tổng hợp, chưa phải văn bản gốc. Chỗ nào chưa chắc em ghi ❓.
 
 ---
 
-## 1. Sự thật phải nhìn thẳng
-
-| Điều anh đã nói | Hệ quả |
-|---|---|
-| Có tài khoản Shopee Affiliate, tạo được link | ✅ Có "vé vào cửa" |
-| X ít view, FB và TikTok chỉ là cá nhân | ❌ **Hiện chưa có khán giả** |
-| Không lộ mặt, không lộ giọng | Loại hướng "người thật review" |
-| Ads, video, ảnh, cái nào cũng được | Anh mở hướng trả tiền nếu cần |
-| 1–2 giờ mỗi ngày, mục tiêu 1 đơn trong 7 ngày | Phải chọn kênh có sẵn người mua |
-
-**Kết luận kiến trúc:** Anh không có khán giả → đừng mất 7 ngày để xây khán giả. Phải **đi tới chỗ người mua đã tụ sẵn** thay vì kéo họ về kênh anh.
-
----
-
-## 2. Hướng em chọn: "SĂN DEAL, KHÔNG LỘ MẶT"
-
-Lý do chọn: người Việt vào Shopee/nhóm săn sale là để mua. Họ không cần biết anh là ai, họ cần **món rẻ + voucher + link bấm được**. Hợp với người không lộ mặt, 1–2 giờ/ngày, không cần khán giả.
+## 1. Kiến trúc một hình (đọc từ trái sang phải)
 
 ```
- [1. CHỌN MÓN]        [2. LÀM BÀI]         [3. ĐĂNG Ở CHỖ     [4. ĐO]          [5. LẶP]
- 10 sản phẩm bán  →  ảnh/clip ngắn +   →  CÓ SẴN NGƯỜI MUA → xem báo cáo   →  món nào ra
- chạy, giá dưới      caption + voucher    (xem mục 3)         Shopee mỗi        click/đơn thì
- ~200k, đang giảm    (không mặt/giọng)                        ngày              làm tiếp
+        ĐỘNG CƠ NỘI DUNG (1 cái, dùng chung)              NHIỀU VÒI HOA HỒNG (chọn theo chủ đề bài)
+  ┌──────────────────────────────────────────┐        ┌──────────────────────────────────────────┐
+  │ Làm bài không lộ mặt, không lộ giọng:    │        │ A. Shopee            (đồ ăn, cafe, anime)│
+  │ ảnh, clip ghép, chữ, carousel            │  ───►  │ B. Tài chính VN      (thẻ, TK, chứng khoán)│
+  │ Đăng ở nơi người xem đã có sẵn           │        │ C. Crypto có phép VN (chờ giấy phép)     │
+  │ Gắn nhãn quảng cáo đúng luật             │        │ D. Forex/crypto nước ngoài (giữ lại)     │
+  └──────────────────────────────────────────┘        │ E. Quốc tế hợp pháp  (Wise, Revolut)     │
+                    │                                  │ F. Sản phẩm số/SaaS  (khóa học, phần mềm)│
+                    ▼                                  └──────────────────────────────────────────┘
+        ĐO: click → lượt đăng ký/đơn → hoa hồng ──► vòi nào ra tiền thì dồn thêm bài vào vòi đó
 ```
 
-| Bước | Làm gì (cụ thể) | Tại sao | Ai làm |
-|---|---|---|---|
-| 1 Chọn món | Vào Shopee Affiliate → mục sản phẩm đề xuất/hoa hồng cao → chọn 10 món, giá thấp, nhiều đã bán, có voucher | Giá thấp + đã nhiều người mua = dễ bấm mua ngay | Anh gửi link, em lọc và xếp hạng |
-| 2 Làm bài | Ảnh chụp màn hình sản phẩm, clip ghép ảnh có chữ, caption ngắn kiểu "săn deal" | Không cần mặt/giọng, làm 10 phút/bài | Em viết caption, anh đăng |
-| 3 Đăng | Xem mục 3 | Có người mua sẵn thì mới ra đơn | Anh |
-| 4 Đo | Mỗi tối nhìn báo cáo click và đơn trong Shopee Affiliate | Chỉ số duy nhất quyết định làm tiếp hay bỏ | Anh chụp gửi em |
-| 5 Lặp | Món nào có click thì làm thêm bài cho món đó | 7 ngày không có thời gian đoán mò | Em đề xuất, anh duyệt |
+**Vì sao thiết kế như vậy:** nút thắt của mọi nhánh giống nhau là **người xem**, không phải sản phẩm. Làm một động cơ nội dung rồi gắn nhiều vòi hoa hồng thì tốn công một lần, tiền vào từ nhiều đường.
 
 ---
 
-## 3. Chỗ đăng (xếp theo khả năng ra đơn nhanh nhất)
+## 2. Bảng nhánh (tiền, pháp lý, khả năng ra kết quả 7 ngày)
 
-| Ưu tiên | Kênh | Vì sao | Anh phải kiểm tra trước (em CHƯA xác minh) |
-|---|---|---|---|
-| 1 | **Video ngay trong app Shopee** (Shopee Video) | Người xem đang ở trong Shopee, sẵn sàng mua | Tài khoản affiliate của anh có đăng video gắn link sản phẩm được không? |
-| 2 | **Nhóm Facebook săn sale/mua bán** | Người trong nhóm vào để tìm deal | Nhóm có cho đăng link affiliate không (đọc nội quy nhóm) |
-| 3 | **TikTok tài khoản mới, nội dung săn deal** | TikTok đẩy video theo nội dung, không cần follower ban đầu | Shopee có cho gắn link affiliate vào TikTok không (đọc điều khoản chương trình) |
-| 4 | Quảng cáo trả tiền | Có khách ngay nhưng dễ lỗ: hoa hồng mỗi đơn thường nhỏ, chi phí mỗi click có thể ngang hoặc hơn hoa hồng | Điều khoản Shopee có cấm chạy ads thẳng vào link affiliate không |
-| ✖ | X | X ít view, khán giả không phải người mua Shopee VN | Giữ để đăng ké, không đặt cược |
+| Nhánh | Tiền mỗi kết quả (tra được) | Pháp lý VN | Điều kiện để bắt đầu | Kết quả trong 7 ngày | Trạng thái |
+|---|---|---|---|---|---|
+| A. Shopee Video | ~4.400đ/đơn (món 175k, hoa hồng ~2.5%); Hoa Hồng Xtra "lên đến 15%" ❓ chưa biết áp dụng thế nào | 🟢 | Tài khoản đã có | Có thể | Sẵn sàng |
+| B. Tài chính VN (thẻ, TK ngân hàng, chứng khoán, bảo hiểm, ví) | Từ ~64k đến ~5 triệu/lượt tùy sản phẩm (HDBank thẻ 180k, VPBank thẻ 650k, chứng khoán 500k–2 triệu, Adflex nêu 500k–5 triệu) | 🟢 nếu sản phẩm của đơn vị có phép và quảng cáo đúng luật | Đăng ký publisher ở Ecomobi/Accesstrade/Adflex/Permate, qua duyệt | Có thể, tùy duyệt và việc người dùng hoàn tất xác minh | Cần đăng ký |
+| C. Sàn crypto có giấy phép ở VN | ❓ chưa có chương trình affiliate công khai | 🟢 chỉ khi sàn có giấy phép chính thức | Sàn được cấp phép chính thức VÀ mở affiliate | Chưa thể | **CHỜ SỰ KIỆN** (mục 4) |
+| D. Forex/crypto nước ngoài | $200–$1.000+/người nạp tiền đầu (chưa xác minh) | 🟠 vùng xám cho khách nước ngoài, 🔴 cho người Việt | Luật sư xác nhận + khán giả nước ngoài | Không | **GIỮ, chưa làm** |
+| E. Wise, Revolut | $10–63/lượt đủ điều kiện | 🟢 | Khán giả đúng nước, nội dung tiếng Anh | Khó | Sau ngày 7 |
+| F. Sản phẩm số, SaaS | Hoa hồng 20–50%, có loại thu định kỳ (tra được, chưa xác minh chương trình cụ thể) | 🟢 | Chương trình cụ thể phù hợp chuyên môn tự động hóa của anh | ❓ | Ứng viên, cần chọn chương trình |
 
----
-
-## 4. CỔNG CHẶN (đã làm lại)
-
-| Cổng | Điều kiện | Trạng thái |
-|---|---|---|
-| G1 | Tài khoản affiliate được duyệt | ✅ ĐẠT |
-| G2 | Có ít nhất **1 kênh trong mục 3 được phép đăng link affiliate và có người mua** | 🟡 Shopee Video: ĐĂNG ĐƯỢC (anh đã xác nhận). Còn 2 điều chưa biết: (a) gắn sản phẩm có tính hoa hồng affiliate không, (b) có ai xem không. Đo ở mục 9 |
-| G3 | Mục tiêu: 1 đơn được ghi nhận trong báo cáo trong 7 ngày | ✅ CHỐT |
-
-**Nếu G2 rớt (không kênh nào cho phép đăng link):** em không build gì. Việc duy nhất của anh là đổi sang chương trình affiliate khác hoặc đổi cách đưa người xem tới Shopee.
+### Về crypto trong nước (anh nói đúng)
+Việt Nam đang thí điểm sàn tài sản mã hóa theo Nghị quyết 05/2025. Đã có hồ sơ của VIXEX, CTCP Tài sản số Việt Nam, CAEX (hệ VPBank), SCEX, TCEX (hệ Techcombank). TCEX qua vòng 1, còn vòng 2. Từ 1/9/2026 nhà đầu tư trong nước phải giao dịch qua sàn có phép. Mình **chưa thấy xác nhận sàn nào đã được cấp giấy phép chính thức**. Quảng bá sàn chưa có phép bị phạt (cá nhân khoảng 90–100 triệu theo Nghị định 284/2026).
 
 ---
 
-## 5. Kế hoạch 7 ngày (mỗi ngày đều ra hành động)
+## 3. Luật quảng cáo mới ảnh hưởng MỌI nhánh (kể cả Shopee)
 
-| Ngày | Việc của anh (1–2 giờ) | Việc của em | Kết quả cuối ngày |
-|---|---|---|---|
-| 1 | Kiểm tra G2 (mục 6), gửi em kết quả | Cập nhật kiến trúc theo kết quả | Biết kênh nào dùng được |
-| 2 | Gửi em 10 link sản phẩm | Lọc và xếp hạng, viết 10 caption + chữ trên clip | 10 bài sẵn sàng |
-| 3 | Đăng 3 bài vào kênh ưu tiên 1 | Hỗ trợ chỉnh nội dung | Có bài đầu tiên chạy |
-| 4 | Đăng 3 bài, chụp báo cáo gửi em | Đọc số liệu, chỉ ra món có click | **Quyết định: giữ hay đổi kênh** |
-| 5 | Đăng 3 bài món có click | Viết bài mới theo món tốt | Tăng lượng bài cho món tốt |
-| 6 | Đăng 3 bài, thử thêm kênh ưu tiên 2 | Soạn bản cho kênh 2 | Mở rộng nếu có kết quả |
-| 7 | Chụp báo cáo cuối | Tổng kết | Có đơn ghi nhận hoặc biết lý do không có |
+Theo các bài tra được về Luật Quảng cáo sửa đổi và quy định KOL, hiệu lực từ 15/5/2026:
+- Phải **gắn nhãn rõ đây là quảng cáo/có hợp tác affiliate**. Không gắn: phạt khoảng 60–80 triệu.
+- Phải **tự kiểm chứng thông tin sản phẩm** trước khi quảng bá. Quảng bá khi chưa tìm hiểu: phạt khoảng 80–100 triệu.
+- Tài chính: không hứa lợi nhuận, không dùng từ tuyệt đối ("tốt nhất", "số 1") khi không có bằng chứng; ngân hàng có thông tư riêng về quảng cáo.
+- Hệ quả cho kiến trúc: **mọi bài đều có nhãn quảng cáo**, và nội dung chỉ nói điều có trong tài liệu chính thức của sản phẩm.
 
-**Em chỉ build công cụ nếu có lý do:** ví dụ sau ngày 4 nếu anh phải viết 10+ caption mỗi ngày và mất hơn 30 phút, em mới làm công cụ tạo caption hàng loạt. Trước đó **không build gì**, vì chưa chứng minh kênh ra click.
+⚠️ Kịch bản Shopee em soạn trước đó thiếu nhãn quảng cáo, phải thêm vào.
 
 ---
 
-## 6. (CHƯA GIAO, bản nháp) Việc kiểm tra cổng G2
+## 4. Điều kiện kích hoạt từng nhánh (không đủ thì KHÔNG làm)
 
-1. Mở tài khoản Shopee Affiliate (app hoặc web), tìm xem có mục **đăng video / Shopee Video gắn link sản phẩm** không. Chụp màn hình gửi em.
-2. Đọc **điều khoản chương trình Affiliate**, tìm đoạn nói về: đăng link ở đâu được, chạy quảng cáo có được không. Chụp hoặc chép đoạn đó gửi em.
-3. Tìm 2–3 nhóm Facebook săn sale bằng tiếng Việt và xem nội quy có cho đăng link không. Gửi em tên nhóm.
+| Nhánh | Điều kiện kích hoạt |
+|---|---|
+| A | Gắn được sản phẩm vào video và báo cáo ghi nhận click (đo ở ngày đầu) |
+| B | Được duyệt publisher + có chiến dịch cụ thể hiển thị rõ điều kiện tính lượt và quy định quảng bá |
+| C | Có sàn được cấp giấy phép chính thức + có chương trình giới thiệu hợp lệ |
+| D | Luật sư xác nhận bằng văn bản + khán giả nước ngoài |
+| E | Có khán giả tiếng Anh đúng nước |
+| F | Chọn được 1 chương trình cụ thể, đọc được điều khoản và mức hoa hồng |
 
-Em không đoán thay chính sách. Em chỉ dựa trên điều anh gửi.
+## 5. Luật lời/lỗ cho quảng cáo (áp dụng mọi nhánh)
 
----
-
-## 7. Câu hỏi đã trả lời
-
-| # | Câu hỏi | Trả lời | Ảnh hưởng |
-|---|---|---|---|
-| 1 | Trạng thái affiliate | Đã duyệt | Qua G1 |
-| 2 | Kênh X | Ít view | Loại X làm kênh chính |
-| 3 | Mục tiêu 7 ngày | 1 đơn ghi nhận | Chốt G3 |
-| 4 | Thời gian | 1–2 giờ/ngày | Tối đa 3 bài/ngày |
-| 5 | Nhóm hàng | Em tự chọn theo lợi nhuận | Chọn hàng giá thấp, bán chạy, có voucher |
-| 6 | Dạng nội dung | Không mặt, không giọng, ads/video đều được | Làm ảnh/clip ghép, không người thật |
-| 7 | Ngân sách ads | Tối đa ~500k | Ads là phương án dự phòng từ ngày 4, chỉ dùng khi điều khoản Shopee cho phép, chia nhỏ ~100k/lần thử |
-
-
----
-
-## 8. CHỐNG LỖ (luật cứng, không ngoại lệ)
-
-### 8.1 Nguyên tắc
-- **Đăng bài miễn phí là cách chính.** Chi phí 0 đồng nên không thể lỗ tiền, tệ nhất là mất thời gian.
-- **Ads không phải để thử vận may.** Ads chỉ được bật khi phép tính ở 8.2 cho kết quả dương, dựa trên số đo thật từ traffic miễn phí.
-
-### 8.2 Công thức quyết định có chạy ads hay không
 ```
-Tiền lời mỗi đơn      = giá món × % hoa hồng (đọc trong Shopee Affiliate, đừng đoán)
-Tiền thu mỗi click    = tiền lời mỗi đơn × tỉ lệ click ra đơn (đo từ báo cáo ngày 1–4)
-Giá click tối đa chịu được = tiền thu mỗi click
+Giá click tối đa chịu được = tiền mỗi kết quả × tỉ lệ click ra kết quả (phải đo, không đoán)
 ```
-- Giá click thực tế của ads **thấp hơn** giá click tối đa → được chạy.
-- Giá click thực tế **cao hơn** → KHÔNG chạy, dù anh có 500k.
-
-### 8.3 Chọn món để phép tính có cơ hội dương
-- Ưu tiên món có **hoa hồng cao** và **giá cao hơn** (tiền lời mỗi đơn lớn), không chạy ads cho món vài chục nghìn.
-- Bỏ món hay bị hủy/hoàn (Shopee không trả hoa hồng đơn bị hủy).
-
-### 8.4 Cắt lỗ
-| Luật | Nội dung |
-|---|---|
-| Trần lỗ tối đa | **500k tổng, không nạp thêm** |
-| Mỗi lần thử | Tối đa 100k, chỉ 1 món, 1 bài |
-| Điều kiện dừng | Chi 100k mà 0 đơn **và** giá click cao hơn mức chịu được → dừng ngay, không thử tiếp bằng cách đó |
-| Điều kiện mở rộng | Chỉ tăng ngân sách khi một lần thử đã **có đơn và doanh thu lớn hơn chi phí** |
-| Ngày bắt đầu ads | Không trước ngày 4, và chỉ khi đã qua điều khoản Shopee (mục 6) |
-
-### 8.5 Số liệu anh cần gửi em để tính (em không đoán)
-1. % hoa hồng của từng món trong danh sách 10 món.
-2. Số click và số đơn trong báo cáo ngày 1–4.
-3. Giá mỗi click ads thực tế (nếu chạy thử).
-
+- Shopee: ~88đ/click nếu tỉ lệ 2% → **không chạy ads** (lỗ).
+- Tài chính VN: ví dụ HDBank 180.000đ × 1–3% = 1.800–5.400đ/click → có thể dương, nhưng nền tảng ads có thể hạn chế quảng cáo tài chính (chưa xác minh).
+- Trần lỗ 500k, mỗi lần thử tối đa 100k, 0 kết quả sau 100k thì dừng, không nạp thêm. Chỉ bắt đầu sau khi có số đo thật.
 
 ---
 
-## 9. THÍ NGHIỆM SHOPEE VIDEO (48 giờ, để trả lời "ai xem, hiện ở đâu")
+## 6. Kế hoạch 7 ngày (BẢN NHÁP, CHƯA GIAO)
 
-Tài khoản: chovietsaigon (12 người theo dõi, 0 lượt thích, đã có Shopee Video + Kênh Người sáng tạo).
-
-### Mục đích
-Biết 2 thứ bằng số thật: (a) video có lượt xem không, (b) gắn sản phẩm có ghi nhận hoa hồng affiliate không.
-
-### Các bước (bản nháp, chưa giao)
-1. Mở **Kênh Người sáng tạo**, chụp màn hình tất cả mục có trong đó (đặc biệt phần thống kê lượt xem, nguồn xem, và nút gắn sản phẩm).
-2. Đăng **3 video ngắn (10–20 giây)**, mỗi video **gắn 1 sản phẩm khác nhau**, nội dung ghép ảnh/clip sản phẩm, không mặt, không giọng. Dùng ảnh/clip của chính sản phẩm hoặc tự quay, không dùng video người khác (nguy cơ bản quyền và bị gỡ).
-3. Sau 48 giờ chụp: lượt xem từng video, nguồn xem (nếu có), và báo cáo click/đơn trong Shopee Affiliate.
-
-### Quy tắc quyết định (ngưỡng em tự đặt, anh có thể chỉnh)
-| Kết quả sau 48 giờ | Quyết định |
-|---|---|
-| Có lượt xem đáng kể (từ vài trăm trở lên) và có click vào sản phẩm | Giữ kênh, đăng thêm theo món có click |
-| Lượt xem rất thấp (dưới ~100 mỗi video) | Kênh này chưa dùng được ở giai đoạn 12 follower, chuyển sang nhóm Facebook săn sale |
-| Có xem nhưng báo cáo affiliate không ghi click | Link gắn trong video không tính hoa hồng, dừng kênh này, em tìm cách khác |
-
-Chi phí thí nghiệm: 0 đồng.
-
-
----
-
-## 10. HƯỚNG KHÁC ĐÃ XEM XÉT: AFFILIATE TÀI CHÍNH
-
-Anh đề cập: affiliate tài chính (thẻ, vay, mở tài khoản chứng khoán/sàn...) "khá ổn". Em đưa vào so sánh, chưa loại, chưa chọn.
-
-| Tiêu chí | Shopee | Tài chính |
+| Ngày | Mục đích | Đầu ra kiểm tra được |
 |---|---|---|
-| Tiền mỗi lượt | Nhỏ | Lớn hơn nhiều (chưa xác minh) |
-| Ads có lời | Khó với món rẻ | Dễ dương hơn |
-| Điều kiện ra tiền | Người mua đặt hàng | Người dùng hoàn tất đăng ký/xác minh, chậm hơn |
-| Quảng cáo | Có ads của Shopee Video | Nhiều nền tảng hạn chế (chưa xác minh) |
-| Rủi ro pháp lý/uy tín | Thấp | Cao hơn |
-| Khả năng có kết quả trong 7 ngày | Cao hơn | Thấp hơn |
+| 1 | Kiểm chứng nhánh A: video gắn sản phẩm có ghi nhận click không | Có/không ghi nhận |
+| 1–2 | Chốt chiến dịch cụ thể cho nhánh B | Tên chiến dịch, điều kiện, tiền mỗi lượt |
+| 3–4 | Chạy động cơ nội dung cho A và B | Số bài đã đăng, click theo từng nhánh |
+| 4 | Quyết định: nhánh nào giữ, nhánh nào bỏ, có chạy ads thử không (theo mục 5) | Bảng quyết định |
+| 5–7 | Dồn bài vào nhánh có click | 1 kết quả được ghi nhận ở ít nhất 1 nhánh |
 
-### Điều kiện để tài chính được vào kế hoạch (thiếu một ý là KHÔNG làm)
-1. Có tên **chương trình cụ thể** và trang đăng ký (anh gửi, em không tự bịa).
-2. Biết **tiền mỗi lượt** và **điều kiện được tính** (vd: người dùng phải làm gì mới được trả).
-3. Biết **quy định quảng bá** (được đăng ở đâu, có chạy ads được không).
-4. Chương trình được cấp phép hợp pháp ở Việt Nam. Không quảng bá app vay lãi cao, sàn không giấy phép, hay thứ gì có dấu hiệu lừa đảo.
-
-Nếu đủ 4 ý, em lập thêm một nhánh thí nghiệm song song. Nếu thiếu, tài chính bị gạt khỏi kế hoạch 7 ngày.
-
-### Phát hiện từ ảnh Live & Video (Shopee Creator)
-- "Dịch Vụ Hiển Thị Video" (nhãn AD, tăng 28% lưu lượng): ads trong Shopee. **Chưa bấm, chưa biết giá**, phải tính theo mục 8 trước.
-- "Hoa Hồng Xtra": anh chụp lại để biết món nào được cộng hoa hồng.
-- Thống kê 7 ngày đều 0 (đúng với tài khoản mới).
-
+Không build công cụ nào trước ngày 4. Sau ngày 4 nếu việc làm bài chiếm quá nhiều thời gian của anh (1–2 giờ mỗi ngày) thì em đề xuất công cụ tạo nội dung hàng loạt.
 
 ---
 
-## 11. SỐ LIỆU THẬT EM TỰ TRA (nguồn là bài tổng hợp trên mạng, chưa phải tài liệu gốc của Shopee, cần đối chiếu với màn hình tài khoản của anh)
+## 7. Lịch sử trả lời của anh (đã chốt)
 
-### 11.1 Shopee
-| Mục | Số tra được |
-|---|---|
-| Hoa hồng Shopee Video | ~1.58–3.68% (đơn trực tiếp), ~1.28–2.55% (đơn gián tiếp) |
-| Hoa hồng tối đa theo ngành | đến ~11%, trần ~70.000đ/đơn |
-| Giá trung bình đơn từ video | ~150.000–200.000đ |
-| Cookie | 7 ngày qua app, 30 ngày qua web |
-| Giữ đơn trước khi trả | ~15 ngày để tránh hủy/hoàn |
-| Trả tiền | Đối soát 2 đợt/tháng, tiền về khoảng ngày 25–30; điều kiện hoa hồng trên 10.000đ |
-| Quảng cáo | Không cấm hoàn toàn, nhưng cấm quảng cáo clickbait/sai lệch và vi phạm chính sách nền tảng quảng cáo |
-| Thuật toán Shopee Video | Video mới được phát ngẫu nhiên cho nhóm người xem thử; sau đó xét watch time, tương tác 30 phút đầu, tỉ lệ bấm tag sản phẩm |
-
-### 11.2 Phép tính lời/lỗ Shopee (giả định tỉ lệ click ra đơn 2%, CHƯA đo)
-- Món 175.000đ × 2.5% = khoảng **4.400đ hoa hồng mỗi đơn**
-- Mỗi click mang về: 4.400đ × 2% = khoảng **88đ**
-- Giá click ads thông thường cao hơn 88đ rất nhiều → **ads cho món Shopee giá thấp: LỖ. Quyết định: KHÔNG chạy ads cho Shopee**, trừ khi ads Shopee Video báo giá mỗi click dưới ~88đ (rất khó).
-- Shopee chỉ làm **miễn phí 0 đồng**. Lời hay không phụ thuộc có ra đơn, vì chi phí là 0 nên không thể lỗ tiền.
-
-### 11.3 Tài chính (từ Ecomobi/Accesstrade, tra bằng search, chưa mở được trang gốc)
-| Chiến dịch | Hoa hồng tra được |
-|---|---|
-| HDBank thẻ tín dụng | 180.000đ/thẻ xác thực thành công |
-| VPBank thẻ tín dụng | ~650.000đ/lượt (CPO) |
-| VPBank NEO | ~64.000–72.000đ/lượt hoàn tất eKYC hoặc kích hoạt |
-| Tài khoản chứng khoán | ~500.000–2.000.000đ/lượt |
-
-### 11.4 Phép tính lời/lỗ tài chính (giả định HDBank 180.000đ, tỉ lệ click ra thẻ 1–3%, CHƯA đo)
-- Mỗi click mang về: 1.800đ (1%) đến 5.400đ (3%)
-- Giá click ads thông thường khoảng 1.000–3.000đ (em chưa xác minh) → có thể hòa vốn hoặc lời nhẹ, **toán học dương hơn Shopee nhiều**
-- Nhưng: cần đăng ký publisher ở Accesstrade/Ecomobi, nền tảng ads thường hạn chế quảng cáo tài chính, và chỉ được tính khi người dùng hoàn tất xác minh nên khó có kết quả trong 7 ngày.
-
-### 11.5 Kết luận
-| Nhánh | Chi phí | Ra kết quả 7 ngày | Ads có lời |
-|---|---|---|---|
-| A. Shopee Video, miễn phí | 0đ | Có khả năng | Không dùng ads |
-| B. Tài chính qua Accesstrade/Ecomobi | 0đ để đăng ký, ads tùy chọn | Thấp hơn | Có thể, cần đo |
-
-**Chạy song song cả hai, nhưng chỉ đặt cược tiền vào B nếu đo ra số dương.**
-
-## 12. CHIA VIỆC (em làm gì, anh làm gì)
-
-| Việc | Em | Anh |
+| # | Nội dung | Ảnh hưởng |
 |---|---|---|
-| Tra chính sách, số liệu, tính lời lỗ | ✅ Em | |
-| Viết kịch bản, chữ trên video, caption, hashtag | ✅ Em | |
-| Lọc sản phẩm theo tiêu chí | ✅ Em, khi có danh sách | Lấy danh sách từ app (em không đăng nhập được tài khoản của anh) |
-| Quay/ghép video, bấm đăng | | Anh (cần tài khoản của anh) |
-| Đăng ký Accesstrade/Ecomobi | | Anh (cần danh tính của anh, em không làm thay) |
-| Đọc số liệu, ra quyết định giữ/bỏ | ✅ Em đề xuất | Anh chụp số liệu |
-
+| 1 | Tài khoản Shopee Affiliate đã duyệt | Nhánh A có vé vào cửa |
+| 2 | X ít view, FB/TikTok là cá nhân, X khó chạy Shopee VN | Chưa có khán giả, phải tìm nơi người xem có sẵn |
+| 3 | Mục tiêu 7 ngày: 1 đơn/lượt ghi nhận | Mốc đo kết quả |
+| 4 | 1–2 giờ mỗi ngày | Tối đa vài bài/ngày |
+| 5 | Không lộ mặt, không lộ giọng; ads/video/ảnh đều được | Làm nội dung ẩn danh |
+| 6 | Ngân sách ads tối đa ~500k, không chấp nhận lỗ không kiểm soát | Mục 5 |
+| 7 | Tài chính VN hợp pháp, crypto VN sắp có sàn, cần đa dạng để hoa hồng cao | Kiến trúc đa nhánh này |
+| 8 | Không giao việc khi chưa có đánh giá tổng quan | Mục 6 giữ ở dạng nháp |
 
 ---
 
-## 13. TÀI CHÍNH: BỘ LỌC HỢP PHÁP (đa dạng nhưng KHÔNG đụng vùng đỏ)
+## 8. ĐÁNH GIÁ TỔNG QUAN
 
-Nguồn tra bằng search, là báo/bài tổng hợp, chưa phải văn bản luật gốc. Trước khi làm thật anh nên hỏi kế toán/luật sư vì em không phải nguồn tư vấn pháp lý.
-
-| Loại | Màu | Lý do |
-|---|---|---|
-| Forex cho **người Việt** | 🔴 LOẠI | Ngân hàng Nhà nước chưa cấp phép cho ai kinh doanh Forex ở VN. Rủ rê người Việt có thể bị xử phạt, nặng thì hình sự (đa cấp) |
-| Forex cho **người nước ngoài** (anh hỏi) | 🟠 VÙNG XÁM, CHƯA LÀM | Em KHÔNG tìm được nguồn nào nói thẳng "người Việt làm affiliate forex cho khách nước ngoài là vi phạm", cũng không có nguồn nói là hợp pháp. Luật VN cấm cá nhân kinh doanh ngoại hối và xử phạt cả hành vi môi giới/quảng bá (Nghị định 88/2019, phạt đến 30 triệu theo tra cứu). Chưa ai xác nhận việc giới thiệu khách nước ngoài có nằm ngoài cấm hay không. Thêm lớp luật của nước khách (Anh, EU, Úc) bắt buộc cảnh báo rủi ro, UK còn yêu cầu quảng cáo được công ty có phép duyệt. **Cần luật sư xác nhận trước khi làm.** |
-| Sàn tiền mã hóa (Binance, Bybit, Coinbase...) giới thiệu cho người Việt | 🔴 LOẠI | Nghị định 284/2026/NĐ-CP (hiệu lực 1/9/2026) phạt quảng cáo tài sản mã hóa chưa cấp phép: cá nhân khoảng 90–100 triệu đồng |
-| App vay lãi cao, đầu tư hứa lời | 🔴 LOẠI | Rủi ro lừa đảo, gây hại người xem |
-| Thẻ tín dụng, tài khoản ngân hàng, eKYC của **ngân hàng VN có giấy phép** (HDBank, VPBank...) | 🟢 LÀM ĐƯỢC | Sản phẩm hợp pháp, nhận qua Ecomobi/Accesstrade |
-| Mở tài khoản chứng khoán ở **công ty chứng khoán có giấy phép** | 🟢 LÀM ĐƯỢC | Hợp pháp, hoa hồng cao (khoảng 500k–2 triệu/lượt theo tra cứu, chưa xác minh) |
-| Dịch vụ chuyển tiền/ngân hàng số quốc tế (Wise, Revolut) | 🟡 LÀM ĐƯỢC NẾU đúng thị trường | Chương trình hợp pháp, nhưng thường chỉ tính khi người đăng ký ở đúng quốc gia và đủ điều kiện |
-
-### Nước ngoài: số liệu tra được
-| Chương trình | Hoa hồng tra được |
+| Mắt xích | Trạng thái |
 |---|---|
-| Wise | ~$12.7 (cá nhân) đến ~$63 (doanh nghiệp), cookie 365 ngày |
-| Revolut | ~$10–50 mỗi đăng ký đủ điều kiện, cookie 30 ngày, trả hằng tháng |
+| Có vé vào nhánh A (tài khoản duyệt, đăng được video) | ✅ |
+| Gắn sản phẩm có ghi nhận hoa hồng, video có người xem, người xem mua | ❓ Chưa có bằng chứng |
+| Nhánh B có chiến dịch hợp pháp, tiền mỗi lượt lớn | ✅ Số liệu có, ❓ chưa qua duyệt publisher |
+| Crypto VN, forex nước ngoài | Không ra kết quả trong 7 ngày |
+| Lỗ tiền | Không lỗ nếu không chạy ads; ads chỉ khi có số đo |
 
-Điểm yếu thật của hướng nước ngoài:
-- Anh cần khán giả đúng nước đó, nội dung tiếng Anh. X của anh hiện ít view, nên 7 ngày rất khó ra lượt.
-- Nền tảng ads nào cũng hạn chế quảng cáo tài chính.
-- Thu nhập từ nước ngoài vẫn là thu nhập chịu thuế ở VN (cá nhân kinh doanh dưới 100 triệu/năm theo tra cứu thì không phải nộp GTGT/TNCN, anh cần kế toán xác nhận).
-
-### XẾP HẠNG TỐI ƯU LỢI NHUẬN × KHẢ NĂNG LÀM TRONG 7 NGÀY
-| Hạng | Nhánh | Tiền mỗi lượt | Chi phí | Khả năng có kết quả 7 ngày |
-|---|---|---|---|---|
-| 1 | Shopee Video miễn phí | nhỏ (vài nghìn) | 0đ | Cao nhất |
-| 2 | Ngân hàng/chứng khoán VN có phép qua Ecomobi/Accesstrade | trung bình đến lớn (64k–2 triệu) | 0đ để đăng ký | Trung bình, phải qua duyệt publisher |
-| 3 | Wise/Revolut nước ngoài | lớn ($10–63) | 0đ | Thấp trong 7 ngày (cần khán giả tiếng Anh) |
-| ✖ | Forex, crypto, app vay | — | — | **Không làm** |
-
-**Quyết định:** chạy hạng 1 ngay hôm nay, mở hạng 2 song song (anh đăng ký), hạng 3 để sau ngày 7 nếu hạng 1–2 có tín hiệu.
-
----
-
-## 14. KỊCH BẢN 3 VIDEO ĐẦU (anh chỉ việc chọn món thật trong app rồi quay/ghép)
-
-Quy tắc chung cho cả 3 (để không bị gỡ video, không mất hoa hồng):
-- Chỉ nói đúng điều có trong trang sản phẩm. Không viết "tốt nhất", "đảm bảo", "100%".
-- Không dùng logo Shopee, không chèn link ngoài vào video.
-- Dùng ảnh/clip sản phẩm lấy từ chính trang sản phẩm hoặc tự quay. Không dùng video của người khác.
-- 3 giây đầu phải có chữ lớn gây tò mò (thuật toán xét giữ chân người xem ở 3 giây đầu).
-- Chọn món: giá 100–250k, nhiều lượt bán, đánh giá trên 4.5 sao, có voucher.
-
-**Video 1: Dụng cụ cà phê/pha chế** (hợp ảnh cafe của anh)
-- Chữ 0–3 giây: "Pha cà phê ở nhà mà không cần máy đắt tiền"
-- 3–12 giây: 3–4 ảnh món từ nhiều góc, mỗi ảnh một dòng chữ ngắn nêu 1 điểm có thật trong mô tả (kích thước, chất liệu, cách dùng)
-- 12–18 giây: "Giá khoảng [GIÁ], bấm giỏ hàng để xem"
-- Caption: "Dụng cụ pha cà phê giá mềm cho dân tại gia. Xem giá và voucher ở giỏ hàng"
-- Hashtag: #cafe #phacafe #cafetainha #shopee #review
-
-**Video 2: Đồ ăn/hộp cơm/bình giữ nhiệt** (hợp ảnh daily food)
-- Chữ 0–3 giây: "Mang cơm đi làm khỏi lo nguội"
-- 3–12 giây: ảnh món + 3 điểm có thật (dung tích, chất liệu, có ngăn không)
-- 12–18 giây: "Đang có voucher, xem giỏ hàng"
-- Caption: "Hộp cơm/bình giữ nhiệt cho dân văn phòng, xem giá hiện tại ở giỏ hàng"
-- Hashtag: #comvanphong #dailyfood #bepnhoxinh #shopee
-
-**Video 3: Phụ kiện anime/decor bàn** (hợp ảnh anime, đời sống)
-- Chữ 0–3 giây: "Góc bàn làm việc đổi vibe chỉ với [GIÁ]"
-- 3–12 giây: ảnh món đặt trong bối cảnh bàn làm việc, thêm 2 dòng chữ mô tả
-- 12–18 giây: "Xem chi tiết trong giỏ hàng"
-- Caption: "Phụ kiện decor bàn hợp dân mê anime. Giá và voucher ở giỏ hàng"
-- Hashtag: #anime #decorban #goclamviec #shopee
-
-Anh gửi em tên 3 món thật đã chọn, em chỉnh chữ và caption cho đúng món.
-
-
----
-
-## 15. DỮ LIỆU THẬT TỪ TÀI KHOẢN (ảnh "Hành Trình Nhà Sáng Tạo", chụp ngày 2/10/2026)
-
-| Mục | Con số trên màn hình |
-|---|---|
-| Cấp hiện tại | Lv.0 |
-| Yêu cầu lên Lv.1 | Số ngày hoạt động **0/5**, đơn hàng hợp lệ **0/1**, phần "Nội dung" sẽ mở sau khi xong 2 mục trên |
-| Chu kỳ xét duyệt tiếp theo | **6/10** (mỗi thứ Ba) |
-| Hoa Hồng Xtra | "Lên đến 15%", Shopee ghi *tất cả KOL affiliate đều có cơ hội nhận* |
-| Đăng tải Shopee Video | Tất cả nhà sáng tạo nội dung đều có cơ hội |
-| Giỏ hàng Shopee Live | Lv.0 và Lv.1: tối đa 100 sản phẩm, Lv.2: 500 sản phẩm |
-| Livestream trên máy tính | Khóa, mở ở Lv.2 |
-
-### Điều rút ra
-1. **Mục tiêu 1 đơn của mình trùng với yêu cầu lên cấp.** Đơn hợp lệ đầu tiên vừa là kết quả 7 ngày, vừa là điều kiện mở Lv.1. Đây là lý do thật để không bỏ cuộc giữa chừng.
-2. **Hoa hồng Xtra lên đến 15%** cao hơn nhiều mức 1.58–3.68% em tra trước đó. Đây có thể là chỗ tăng lợi nhuận lớn nhất. Em CHƯA biết: món nào được Xtra, và Xtra áp dụng cho Lv.0 ra sao. Phải tra trong tài khoản (xem bước tiếp theo).
-3. **Cần 5 ngày hoạt động.** Em chưa biết "ngày hoạt động" tính theo gì (đăng video, có lượt xem, hay có thao tác). Em giả định là mỗi ngày có đăng video. Nếu bắt đầu từ hôm nay (thứ Sáu 2/10), đủ 5 ngày vào thứ Ba 6/10, đúng ngày xét duyệt.
-4. Livestream và giỏ hàng 500 sản phẩm không cần lúc này (khóa ở Lv.2, và mục tiêu 7 ngày không cần).
-
-### Kế hoạch điều chỉnh
-- Hôm nay (thứ Sáu 2/10) = Ngày 1: đăng ít nhất 1 video để bắt đầu đếm ngày hoạt động.
-- Mỗi ngày đến thứ Ba 6/10: đăng ít nhất 1 video, ưu tiên 2–3.
-- Ưu tiên món **có nhãn Hoa Hồng Xtra** khi chọn sản phẩm (nếu app hiển thị).
-
-
-### Ghi chú sửa lỗi về Forex (v3.3)
-Bản trước em xếp chung Forex vào 🔴 LOẠI. Chỗ đó em nói quá. Tách đúng: cho người Việt thì chắc chắn rủi ro cao; cho người nước ngoài thì là vùng xám chưa có xác nhận.
-- Lợi nhuận forex nước ngoài là thật: CPA khoảng $200–$1.000+ mỗi người nạp tiền lần đầu theo tra cứu (chưa xác minh từng broker).
-- Nhưng cần khán giả đúng nước, nội dung tiếng Anh, tuân thủ quy định quảng cáo nước đó. Anh hiện chưa có khán giả này nên 7 ngày không làm được.
+**Kết luận:** kiến trúc đa nhánh có đường ra kết quả thật. Nhánh B tăng khả năng tiền lớn, nhánh A là đường nhanh nhất để thử. Em không đưa xác suất vì chưa có dữ liệu đo.
