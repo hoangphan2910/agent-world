@@ -1,7 +1,7 @@
 # KIẾN TRÚC: WORKFLOW AFFILIATE TỰ ĐỘNG (7 NGÀY BUILD)
 
 > Phiên bản: v5. Đổi mục tiêu theo anh: **7 ngày để dựng một workflow tự động hoàn chỉnh, tự động nhiều nhất có thể. Không bắt buộc ra đơn.**
-> Trạng thái: **CHƯA BUILD, CHƯA GIAO VIỆC.** Chờ anh duyệt kiến trúc này.
+> Trạng thái: **ĐANG BUILD. Ngày 1 xong (mục 10).** Chưa giao việc gì cho anh.
 > Nguồn: kết quả tìm kiếm (bài tổng hợp, tài liệu API). Chỗ chưa chắc em ghi ❓.
 
 ---
@@ -128,3 +128,19 @@ Khi có khóa API thật, bật chế độ thật thay chế độ dữ liệu 
 - **Chưa kiểm chứng được:** gọi API thật (cần khóa của anh và môi trường có mạng ra ngoài), đăng bài tự động công khai (bị khóa bởi kiểm duyệt app và Shopee Video chưa thấy API).
 - **Tự động hóa:** 7 trên 8 mô-đun chạy hoàn toàn tự động; bước đăng bài là chỗ còn thủ công.
 - **Pháp lý:** mọi bài đều qua bộ kiểm tra nhãn quảng cáo; forex/crypto nước ngoài không đưa vào.
+
+
+---
+
+## 10. TIẾN ĐỘ BUILD
+
+| Ngày | Mô-đun | Trạng thái | Bằng chứng |
+|---|---|---|---|
+| 1 | 1. Nhặt kèo (đọc CSV, lọc, chấm điểm, xếp hạng, ứng dụng gọi Shopee API) | ✅ Xong | 11/11 bài test qua; lệnh `python3 -m affiliate_flow.cli rank --input data/offers_sample.csv` ra bảng xếp hạng từ 20 kèo mẫu |
+
+**Chưa kiểm chứng ở Ngày 1:** phần gọi Shopee API thật. Code viết theo tài liệu tra cứu và đã test bằng kết nối giả, chưa chạm API thật vì cần AppId/Secret và mạng. Tên trường trả về của API em chưa xác minh, code đọc kiểu phòng thủ (trường thiếu thì bỏ qua, không sập).
+
+**Cách chấm điểm kèo (để anh hiểu máy chọn món gì):**
+`điểm = hoa hồng mỗi đơn (có trần 70.000đ) × log(1 + số đã bán) × (sao đánh giá / 5)`
+Bộ lọc mặc định: giá 100–250k, sao từ 4.5, đã bán từ 100.
+Dữ liệu mẫu `data/offers_sample.csv` là dữ liệu GIẢ (tên có chữ [MAU]), không phải sản phẩm thật.
