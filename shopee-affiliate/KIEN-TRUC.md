@@ -1,6 +1,6 @@
 # KIẾN TRÚC DỰ ÁN SHOPEE AFFILIATE (7 NGÀY)
 
-> Phiên bản: v2.2 (thêm luật chống lỗ). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
+> Phiên bản: v2.3 (G2: Shopee Video đăng được, đang đo). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
 > Quy tắc: bước nào không ra hành động cụ thể thì bị loại.
 
 ---
@@ -57,7 +57,7 @@ Lý do chọn: người Việt vào Shopee/nhóm săn sale là để mua. Họ k
 | Cổng | Điều kiện | Trạng thái |
 |---|---|---|
 | G1 | Tài khoản affiliate được duyệt | ✅ ĐẠT |
-| G2 | Có ít nhất **1 kênh trong mục 3 được phép đăng link affiliate và có người mua** | ⏳ **Anh kiểm tra 10 phút (mục 6)** |
+| G2 | Có ít nhất **1 kênh trong mục 3 được phép đăng link affiliate và có người mua** | 🟡 Shopee Video: ĐĂNG ĐƯỢC (anh đã xác nhận). Còn 2 điều chưa biết: (a) gắn sản phẩm có tính hoa hồng affiliate không, (b) có ai xem không. Đo ở mục 9 |
 | G3 | Mục tiêu: 1 đơn được ghi nhận trong báo cáo trong 7 ngày | ✅ CHỐT |
 
 **Nếu G2 rớt (không kênh nào cho phép đăng link):** em không build gì. Việc duy nhất của anh là đổi sang chương trình affiliate khác hoặc đổi cách đưa người xem tới Shopee.
@@ -137,3 +137,27 @@ Giá click tối đa chịu được = tiền thu mỗi click
 1. % hoa hồng của từng món trong danh sách 10 món.
 2. Số click và số đơn trong báo cáo ngày 1–4.
 3. Giá mỗi click ads thực tế (nếu chạy thử).
+
+
+---
+
+## 9. THÍ NGHIỆM SHOPEE VIDEO (48 giờ, để trả lời "ai xem, hiện ở đâu")
+
+Tài khoản: chovietsaigon (12 người theo dõi, 0 lượt thích, đã có Shopee Video + Kênh Người sáng tạo).
+
+### Mục đích
+Biết 2 thứ bằng số thật: (a) video có lượt xem không, (b) gắn sản phẩm có ghi nhận hoa hồng affiliate không.
+
+### Các bước (anh làm)
+1. Mở **Kênh Người sáng tạo**, chụp màn hình tất cả mục có trong đó (đặc biệt phần thống kê lượt xem, nguồn xem, và nút gắn sản phẩm).
+2. Đăng **3 video ngắn (10–20 giây)**, mỗi video **gắn 1 sản phẩm khác nhau**, nội dung ghép ảnh/clip sản phẩm, không mặt, không giọng. Dùng ảnh/clip của chính sản phẩm hoặc tự quay, không dùng video người khác (nguy cơ bản quyền và bị gỡ).
+3. Sau 48 giờ chụp: lượt xem từng video, nguồn xem (nếu có), và báo cáo click/đơn trong Shopee Affiliate.
+
+### Quy tắc quyết định (ngưỡng em tự đặt, anh có thể chỉnh)
+| Kết quả sau 48 giờ | Quyết định |
+|---|---|
+| Có lượt xem đáng kể (từ vài trăm trở lên) và có click vào sản phẩm | Giữ kênh, đăng thêm theo món có click |
+| Lượt xem rất thấp (dưới ~100 mỗi video) | Kênh này chưa dùng được ở giai đoạn 12 follower, chuyển sang nhóm Facebook săn sale |
+| Có xem nhưng báo cáo affiliate không ghi click | Link gắn trong video không tính hoa hồng, dừng kênh này, em tìm cách khác |
+
+Chi phí thí nghiệm: 0 đồng.
