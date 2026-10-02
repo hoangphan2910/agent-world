@@ -1,6 +1,6 @@
 # KIẾN TRÚC DỰ ÁN AFFILIATE ĐA NHÁNH (7 NGÀY)
 
-> Phiên bản: v4. Đập và dựng lại theo ý anh: không bám Shopee, chạy nhiều nhánh để tối ưu hoa hồng.
+> Phiên bản: v4.1 (bỏ lý do "thiếu khán giả nước ngoài" để gạt nhánh; thêm mục 3b cách kéo người xem). Trước đó v4. Đập và dựng lại theo ý anh: không bám Shopee, chạy nhiều nhánh để tối ưu hoa hồng.
 > Trạng thái: **CHƯA GIAO VIỆC, CHƯA BUILD.** Mọi bước ở mục 6 chỉ có hiệu lực sau khi anh duyệt.
 > Nguồn số liệu: kết quả tìm kiếm trên báo/bài tổng hợp, chưa phải văn bản gốc. Chỗ nào chưa chắc em ghi ❓.
 
@@ -33,8 +33,8 @@
 | B. Tài chính VN (thẻ, TK ngân hàng, chứng khoán, bảo hiểm, ví) | Từ ~64k đến ~5 triệu/lượt tùy sản phẩm (HDBank thẻ 180k, VPBank thẻ 650k, chứng khoán 500k–2 triệu, Adflex nêu 500k–5 triệu) | 🟢 nếu sản phẩm của đơn vị có phép và quảng cáo đúng luật | Đăng ký publisher ở Ecomobi/Accesstrade/Adflex/Permate, qua duyệt | Có thể, tùy duyệt và việc người dùng hoàn tất xác minh | Cần đăng ký |
 | C. Sàn crypto có giấy phép ở VN | ❓ chưa có chương trình affiliate công khai | 🟢 chỉ khi sàn có giấy phép chính thức | Sàn được cấp phép chính thức VÀ mở affiliate | Chưa thể | **CHỜ SỰ KIỆN** (mục 4) |
 | D. Forex/crypto nước ngoài | $200–$1.000+/người nạp tiền đầu (chưa xác minh) | 🟠 vùng xám cho khách nước ngoài, 🔴 cho người Việt | Luật sư xác nhận + khán giả nước ngoài | Không | **GIỮ, chưa làm** |
-| E. Wise, Revolut | $10–63/lượt đủ điều kiện | 🟢 | Khán giả đúng nước, nội dung tiếng Anh | Khó | Sau ngày 7 |
-| F. Sản phẩm số, SaaS | Hoa hồng 20–50%, có loại thu định kỳ (tra được, chưa xác minh chương trình cụ thể) | 🟢 | Chương trình cụ thể phù hợp chuyên môn tự động hóa của anh | ❓ | Ứng viên, cần chọn chương trình |
+| E. Wise, Revolut | $10–63/lượt đủ điều kiện | 🟢 | Đọc điều kiện chương trình (quốc gia nào được tính); nội dung tiếng Anh | Có thể, đi qua kênh kéo người ở mục 3b | Ứng viên, chạy song song |
+| F. Sản phẩm số, SaaS | Hoa hồng 20–50%, có loại thu định kỳ (tra được, chưa xác minh chương trình cụ thể) | 🟢 | Chọn chương trình cụ thể hợp chuyên môn tự động hóa của anh | Có thể, qua kênh Q&A và video ngắn (mục 3b) | Ứng viên, chạy song song |
 
 ### Về crypto trong nước (anh nói đúng)
 Việt Nam đang thí điểm sàn tài sản mã hóa theo Nghị quyết 05/2025. Đã có hồ sơ của VIXEX, CTCP Tài sản số Việt Nam, CAEX (hệ VPBank), SCEX, TCEX (hệ Techcombank). TCEX qua vòng 1, còn vòng 2. Từ 1/9/2026 nhà đầu tư trong nước phải giao dịch qua sàn có phép. Mình **chưa thấy xác nhận sàn nào đã được cấp giấy phép chính thức**. Quảng bá sàn chưa có phép bị phạt (cá nhân khoảng 90–100 triệu theo Nghị định 284/2026).
@@ -53,6 +53,25 @@ Theo các bài tra được về Luật Quảng cáo sửa đổi và quy địn
 
 ---
 
+## 3b. CÁCH CÓ NGƯỜI XEM (sửa lỗi lập luận cũ)
+
+Em đã sai khi gạt nhánh nước ngoài vì "chưa có khán giả". Nhánh Shopee và tài chính VN cũng chưa có khán giả. Thiếu khán giả là bài toán của động cơ nội dung, giải bằng kênh kéo người, không phải lý do loại nhánh.
+
+Lý do duy nhất để loại nhánh D (forex/crypto nước ngoài) là **pháp lý**, không phải khán giả.
+
+| Kênh kéo người (không lộ mặt) | Thị trường | Thời gian ra người xem đầu tiên | Ghi chú (nguồn tra cứu) |
+|---|---|---|---|
+| Video ngắn trong app Shopee | VN | Vài giờ đến vài ngày | App phát thử video mới cho người lạ trước, rồi xét giữ chân |
+| TikTok, YouTube Shorts, Reels | VN và quốc tế | Vài ngày | Video không cần follower vẫn được phát thử; kịch bản chuẩn: câu mở mạnh, 3 lợi ích, 1 phản biện, 1 bước tiếp theo |
+| Hỏi đáp (Reddit, Quora, nhóm Facebook) | VN và quốc tế | Vài giờ | Người hỏi đã có nhu cầu thật; trả lời có ích trước, nhắc sản phẩm tự nhiên. ❓ Nhiều nơi cấm hoặc hạn chế link, phải đọc nội quy từng nơi |
+| X (tài khoản của anh) | Quốc tế (tiếng Anh) | ❓ Chưa tra được cách tăng view nhanh | Hiện ít view |
+| Pinterest, blog SEO | Quốc tế | **30–60 ngày** mới có hoa hồng đầu tiên theo bài tra cứu | Không phù hợp mục tiêu 7 ngày, phù hợp làm nền dài hạn |
+
+### Sự khác nhau thật giữa thị trường VN và quốc tế
+- Quốc tế: tiền mỗi lượt lớn hơn (Wise $10–63, so với ~4.400đ mỗi đơn Shopee), nên cần ít lượt hơn để thấy tiền. Đổi lại phải viết tiếng Anh, tiền về bằng USD, phải khai thuế thu nhập nước ngoài ở VN.
+- VN: viết tiếng Việt, đã có người mua ngẫu hứng trên Shopee, tiền mỗi lượt nhỏ ở Shopee, lớn ở tài chính.
+- Cả hai đều bắt đầu từ 0 người theo dõi. Không bên nào dễ hơn rõ ràng ở khoản này.
+
 ## 4. Điều kiện kích hoạt từng nhánh (không đủ thì KHÔNG làm)
 
 | Nhánh | Điều kiện kích hoạt |
@@ -61,7 +80,7 @@ Theo các bài tra được về Luật Quảng cáo sửa đổi và quy địn
 | B | Được duyệt publisher + có chiến dịch cụ thể hiển thị rõ điều kiện tính lượt và quy định quảng bá |
 | C | Có sàn được cấp giấy phép chính thức + có chương trình giới thiệu hợp lệ |
 | D | Luật sư xác nhận bằng văn bản + khán giả nước ngoài |
-| E | Có khán giả tiếng Anh đúng nước |
+| E | Điều kiện chương trình cho phép quốc gia của người đăng ký |
 | F | Chọn được 1 chương trình cụ thể, đọc được điều khoản và mức hoa hồng |
 
 ## 5. Luật lời/lỗ cho quảng cáo (áp dụng mọi nhánh)
