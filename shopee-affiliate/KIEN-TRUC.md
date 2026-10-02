@@ -1,136 +1,130 @@
-# KIẾN TRÚC DỰ ÁN AFFILIATE ĐA NHÁNH (7 NGÀY)
+# KIẾN TRÚC: WORKFLOW AFFILIATE TỰ ĐỘNG (7 NGÀY BUILD)
 
-> Phiên bản: v4.1 (bỏ lý do "thiếu khán giả nước ngoài" để gạt nhánh; thêm mục 3b cách kéo người xem). Trước đó v4. Đập và dựng lại theo ý anh: không bám Shopee, chạy nhiều nhánh để tối ưu hoa hồng.
-> Trạng thái: **CHƯA GIAO VIỆC, CHƯA BUILD.** Mọi bước ở mục 6 chỉ có hiệu lực sau khi anh duyệt.
-> Nguồn số liệu: kết quả tìm kiếm trên báo/bài tổng hợp, chưa phải văn bản gốc. Chỗ nào chưa chắc em ghi ❓.
+> Phiên bản: v5. Đổi mục tiêu theo anh: **7 ngày để dựng một workflow tự động hoàn chỉnh, tự động nhiều nhất có thể. Không bắt buộc ra đơn.**
+> Trạng thái: **CHƯA BUILD, CHƯA GIAO VIỆC.** Chờ anh duyệt kiến trúc này.
+> Nguồn: kết quả tìm kiếm (bài tổng hợp, tài liệu API). Chỗ chưa chắc em ghi ❓.
 
 ---
 
-## 1. Kiến trúc một hình (đọc từ trái sang phải)
+## 1. Kết quả thật của 7 ngày là gì
+
+Một hệ thống chạy được từ đầu đến cuối, mỗi ngày tự làm:
 
 ```
-        ĐỘNG CƠ NỘI DUNG (1 cái, dùng chung)              NHIỀU VÒI HOA HỒNG (chọn theo chủ đề bài)
-  ┌──────────────────────────────────────────┐        ┌──────────────────────────────────────────┐
-  │ Làm bài không lộ mặt, không lộ giọng:    │        │ A. Shopee            (đồ ăn, cafe, anime)│
-  │ ảnh, clip ghép, chữ, carousel            │  ───►  │ B. Tài chính VN      (thẻ, TK, chứng khoán)│
-  │ Đăng ở nơi người xem đã có sẵn           │        │ C. Crypto có phép VN (chờ giấy phép)     │
-  │ Gắn nhãn quảng cáo đúng luật             │        │ D. Forex/crypto nước ngoài (giữ lại)     │
-  └──────────────────────────────────────────┘        │ E. Quốc tế hợp pháp  (Wise, Revolut)     │
-                    │                                  │ F. Sản phẩm số/SaaS  (khóa học, phần mềm)│
-                    ▼                                  └──────────────────────────────────────────┘
-        ĐO: click → lượt đăng ký/đơn → hoa hồng ──► vòi nào ra tiền thì dồn thêm bài vào vòi đó
+ [1 NHẶT KÈO] → [2 TẠO LINK THEO DÕI] → [3 LÀM BÀI] → [4 KIỂM TRA LUẬT] → [5 XẾP LỊCH ĐĂNG] → [6 ĐO KẾT QUẢ] → [7 TỰ ĐIỀU CHỈNH]
+   chọn món/        link affiliate có      kịch bản,        chặn bài vi        gói bài sẵn sàng      kéo báo cáo         bỏ món/mẫu bài
+   chiến dịch       mã riêng cho từng bài  caption, video   phạm trước khi     đăng mỗi ngày         click/đơn           không ra, dồn
+   hoa hồng cao                            không lộ mặt     ra khỏi máy                                                  vào cái ra tiền
+                                                                                                                         │
+                                                                              [8 ĐIỀU PHỐI: chạy tự động mỗi ngày, báo lỗi] ◄┘
 ```
 
-**Vì sao thiết kế như vậy:** nút thắt của mọi nhánh giống nhau là **người xem**, không phải sản phẩm. Làm một động cơ nội dung rồi gắn nhiều vòi hoa hồng thì tốn công một lần, tiền vào từ nhiều đường.
+**Tiêu chí hoàn thành (đo được):** chạy 1 lệnh thì ra đủ "gói bài trong ngày" (video + caption + link theo dõi + nhãn quảng cáo) và báo cáo hôm trước. Mỗi mô-đun có bài kiểm tra tự động qua/rớt.
 
 ---
 
-## 2. Bảng nhánh (tiền, pháp lý, khả năng ra kết quả 7 ngày)
+## 2. Mô-đun, mức tự động, và cánh cửa kỹ thuật thật
 
-| Nhánh | Tiền mỗi kết quả (tra được) | Pháp lý VN | Điều kiện để bắt đầu | Kết quả trong 7 ngày | Trạng thái |
-|---|---|---|---|---|---|
-| A. Shopee Video | ~4.400đ/đơn (món 175k, hoa hồng ~2.5%); Hoa Hồng Xtra "lên đến 15%" ❓ chưa biết áp dụng thế nào | 🟢 | Tài khoản đã có | Có thể | Sẵn sàng |
-| B. Tài chính VN (thẻ, TK ngân hàng, chứng khoán, bảo hiểm, ví) | Từ ~64k đến ~5 triệu/lượt tùy sản phẩm (HDBank thẻ 180k, VPBank thẻ 650k, chứng khoán 500k–2 triệu, Adflex nêu 500k–5 triệu) | 🟢 nếu sản phẩm của đơn vị có phép và quảng cáo đúng luật | Đăng ký publisher ở Ecomobi/Accesstrade/Adflex/Permate, qua duyệt | Có thể, tùy duyệt và việc người dùng hoàn tất xác minh | Cần đăng ký |
-| C. Sàn crypto có giấy phép ở VN | ❓ chưa có chương trình affiliate công khai | 🟢 chỉ khi sàn có giấy phép chính thức | Sàn được cấp phép chính thức VÀ mở affiliate | Chưa thể | **CHỜ SỰ KIỆN** (mục 4) |
-| D. Forex/crypto nước ngoài | $200–$1.000+/người nạp tiền đầu (chưa xác minh) | 🟠 vùng xám cho khách nước ngoài, 🔴 cho người Việt | Luật sư xác nhận + khán giả nước ngoài | Không | **GIỮ, chưa làm** |
-| E. Wise, Revolut | $10–63/lượt đủ điều kiện | 🟢 | Đọc điều kiện chương trình (quốc gia nào được tính); nội dung tiếng Anh | Có thể, đi qua kênh kéo người ở mục 3b | Ứng viên, chạy song song |
-| F. Sản phẩm số, SaaS | Hoa hồng 20–50%, có loại thu định kỳ (tra được, chưa xác minh chương trình cụ thể) | 🟢 | Chọn chương trình cụ thể hợp chuyên môn tự động hóa của anh | Có thể, qua kênh Q&A và video ngắn (mục 3b) | Ứng viên, chạy song song |
+| # | Mô-đun | Làm gì | Tự động? | Căn cứ kỹ thuật (tra được) |
+|---|---|---|---|---|
+| 1 | Nhặt kèo | Lấy danh sách sản phẩm/chiến dịch, chấm điểm theo hoa hồng, bán chạy, đánh giá | ✅ Tự động | Shopee Affiliate Open API có `productOfferV2`, `shopOfferV2`. Tài chính: Accesstrade có API danh sách chiến dịch. Cần AppId/Secret ❓ |
+| 2 | Tạo link theo dõi | Tạo link rút gọn kèm mã riêng từng bài để biết bài nào ra tiền | ✅ Tự động | Shopee `generateShortLink` / `generateBatchShortLink`, hỗ trợ tối đa 5 `subIds` |
+| 3 | Làm bài | Viết kịch bản, caption; ghép video dọc từ ảnh sản phẩm + chữ, không mặt không giọng | ✅ Tự động (bản đầu theo mẫu, có thể nâng cấp) | Công cụ xử lý ảnh/video chạy trên máy/máy chủ; ảnh sản phẩm lấy từ dữ liệu kèo ❓ chưa kiểm chính sách dùng ảnh |
+| 4 | Kiểm tra luật | Tự chặn bài thiếu nhãn quảng cáo, có từ tuyệt đối ("tốt nhất"), hứa lợi nhuận (tài chính) | ✅ Tự động | Quy tắc tra được: Luật Quảng cáo sửa đổi, KOL từ 15/5/2026 (phải gắn nhãn, phải kiểm chứng) |
+| 5 | Xếp lịch đăng | Ra "gói bài" mỗi ngày + lịch giờ đăng | ✅ Tự động ra gói. **Đăng thật: một phần** | Shopee Video: ❓ **không thấy API đăng video** cho người sáng tạo (SDK tìm thấy chỉ dành cho người bán đăng ảnh/video sản phẩm). TikTok, YouTube: có API nhưng **bài bị ép riêng tư cho đến khi app qua kiểm duyệt**. X: trả theo bài (~$0.20/bài có link). Meta: miễn phí nhưng phải qua duyệt app |
+| 6 | Đo kết quả | Kéo báo cáo click/đơn/hoa hồng theo từng mã bài | ✅ Tự động | Shopee `conversionReport` (đơn, tổng hợp, click). Accesstrade: báo cáo chuyển đổi, giới hạn 1 lần/5 phút, tối đa 7 ngày mỗi lần gọi |
+| 7 | Tự điều chỉnh | Bỏ món 0 click sau N bài; dồn bài vào món/mẫu có click; máy tính hòa vốn ads | ✅ Tự động (quy tắc rõ ràng) | Quy tắc lời/lỗ ở mục 5. **Chi tiền ads: không tự động**, chỉ ra khuyến nghị |
+| 8 | Điều phối | Chạy theo lịch mỗi ngày, ghi nhật ký, báo lỗi | ✅ Tự động | Dùng bộ lập lịch có sẵn trên GitHub (Actions) ❓ cần bật và đặt khóa bí mật |
 
-### Về crypto trong nước (anh nói đúng)
-Việt Nam đang thí điểm sàn tài sản mã hóa theo Nghị quyết 05/2025. Đã có hồ sơ của VIXEX, CTCP Tài sản số Việt Nam, CAEX (hệ VPBank), SCEX, TCEX (hệ Techcombank). TCEX qua vòng 1, còn vòng 2. Từ 1/9/2026 nhà đầu tư trong nước phải giao dịch qua sàn có phép. Mình **chưa thấy xác nhận sàn nào đã được cấp giấy phép chính thức**. Quảng bá sàn chưa có phép bị phạt (cá nhân khoảng 90–100 triệu theo Nghị định 284/2026).
-
----
-
-## 3. Luật quảng cáo mới ảnh hưởng MỌI nhánh (kể cả Shopee)
-
-Theo các bài tra được về Luật Quảng cáo sửa đổi và quy định KOL, hiệu lực từ 15/5/2026:
-- Phải **gắn nhãn rõ đây là quảng cáo/có hợp tác affiliate**. Không gắn: phạt khoảng 60–80 triệu.
-- Phải **tự kiểm chứng thông tin sản phẩm** trước khi quảng bá. Quảng bá khi chưa tìm hiểu: phạt khoảng 80–100 triệu.
-- Tài chính: không hứa lợi nhuận, không dùng từ tuyệt đối ("tốt nhất", "số 1") khi không có bằng chứng; ngân hàng có thông tư riêng về quảng cáo.
-- Hệ quả cho kiến trúc: **mọi bài đều có nhãn quảng cáo**, và nội dung chỉ nói điều có trong tài liệu chính thức của sản phẩm.
-
-⚠️ Kịch bản Shopee em soạn trước đó thiếu nhãn quảng cáo, phải thêm vào.
+**Số thật về mức tự động:** 8 mô-đun, 7 chạy hoàn toàn tự động. Mô-đun 5 là chỗ không tự động hết: đăng lên Shopee Video em chưa thấy cách tự động (mục 6), TikTok và YouTube bị ép riêng tư tới khi qua kiểm duyệt. Em không giấu chỗ này.
 
 ---
 
-## 3b. CÁCH CÓ NGƯỜI XEM (sửa lỗi lập luận cũ)
+## 3. Nhánh hoa hồng cắm vào workflow (nguồn kèo)
 
-Em đã sai khi gạt nhánh nước ngoài vì "chưa có khán giả". Nhánh Shopee và tài chính VN cũng chưa có khán giả. Thiếu khán giả là bài toán của động cơ nội dung, giải bằng kênh kéo người, không phải lý do loại nhánh.
+Workflow không phụ thuộc Shopee. Mỗi nhánh chỉ là một "nguồn kèo" cắm vào mô-đun 1 và 6.
 
-Lý do duy nhất để loại nhánh D (forex/crypto nước ngoài) là **pháp lý**, không phải khán giả.
-
-| Kênh kéo người (không lộ mặt) | Thị trường | Thời gian ra người xem đầu tiên | Ghi chú (nguồn tra cứu) |
+| Nhánh | Pháp lý | Cách cắm vào | Làm trong 7 ngày? |
 |---|---|---|---|
-| Video ngắn trong app Shopee | VN | Vài giờ đến vài ngày | App phát thử video mới cho người lạ trước, rồi xét giữ chân |
-| TikTok, YouTube Shorts, Reels | VN và quốc tế | Vài ngày | Video không cần follower vẫn được phát thử; kịch bản chuẩn: câu mở mạnh, 3 lợi ích, 1 phản biện, 1 bước tiếp theo |
-| Hỏi đáp (Reddit, Quora, nhóm Facebook) | VN và quốc tế | Vài giờ | Người hỏi đã có nhu cầu thật; trả lời có ích trước, nhắc sản phẩm tự nhiên. ❓ Nhiều nơi cấm hoặc hạn chế link, phải đọc nội quy từng nơi |
-| X (tài khoản của anh) | Quốc tế (tiếng Anh) | ❓ Chưa tra được cách tăng view nhanh | Hiện ít view |
-| Pinterest, blog SEO | Quốc tế | **30–60 ngày** mới có hoa hồng đầu tiên theo bài tra cứu | Không phù hợp mục tiêu 7 ngày, phù hợp làm nền dài hạn |
+| A. Shopee | 🟢 | API chính thức (mục 2) | ✅ Làm đầu tiên |
+| B. Tài chính VN (thẻ, tài khoản, chứng khoán, bảo hiểm) | 🟢 nếu sản phẩm có phép và quảng cáo đúng luật | Accesstrade API; mạng khác nhập tay vào bảng kèo | ✅ Làm nguồn kèo thứ hai |
+| C. Crypto VN có phép | 🟢 chỉ khi sàn có giấy phép chính thức; hiện chưa thấy sàn nào được cấp chính thức ❓ | Thêm sau | ⏸ Chờ |
+| D. Forex/crypto nước ngoài | 🟠 vùng xám (khách nước ngoài), 🔴 (người Việt) | Không | ⛔ Giữ lại, cần luật sư |
+| E. Wise, Revolut | 🟢 | Nhập bảng kèo tay | ✅ Cắm được (mẫu bài tiếng Anh) |
+| F. Phần mềm, khóa học | 🟢 | Nhập bảng kèo tay | ✅ Cắm được |
 
-### Sự khác nhau thật giữa thị trường VN và quốc tế
-- Quốc tế: tiền mỗi lượt lớn hơn (Wise $10–63, so với ~4.400đ mỗi đơn Shopee), nên cần ít lượt hơn để thấy tiền. Đổi lại phải viết tiếng Anh, tiền về bằng USD, phải khai thuế thu nhập nước ngoài ở VN.
-- VN: viết tiếng Việt, đã có người mua ngẫu hứng trên Shopee, tiền mỗi lượt nhỏ ở Shopee, lớn ở tài chính.
-- Cả hai đều bắt đầu từ 0 người theo dõi. Không bên nào dễ hơn rõ ràng ở khoản này.
-
-## 4. Điều kiện kích hoạt từng nhánh (không đủ thì KHÔNG làm)
-
-| Nhánh | Điều kiện kích hoạt |
-|---|---|
-| A | Gắn được sản phẩm vào video và báo cáo ghi nhận click (đo ở ngày đầu) |
-| B | Được duyệt publisher + có chiến dịch cụ thể hiển thị rõ điều kiện tính lượt và quy định quảng bá |
-| C | Có sàn được cấp giấy phép chính thức + có chương trình giới thiệu hợp lệ |
-| D | Luật sư xác nhận bằng văn bản + khán giả nước ngoài |
-| E | Điều kiện chương trình cho phép quốc gia của người đăng ký |
-| F | Chọn được 1 chương trình cụ thể, đọc được điều khoản và mức hoa hồng |
-
-## 5. Luật lời/lỗ cho quảng cáo (áp dụng mọi nhánh)
-
-```
-Giá click tối đa chịu được = tiền mỗi kết quả × tỉ lệ click ra kết quả (phải đo, không đoán)
-```
-- Shopee: ~88đ/click nếu tỉ lệ 2% → **không chạy ads** (lỗ).
-- Tài chính VN: ví dụ HDBank 180.000đ × 1–3% = 1.800–5.400đ/click → có thể dương, nhưng nền tảng ads có thể hạn chế quảng cáo tài chính (chưa xác minh).
-- Trần lỗ 500k, mỗi lần thử tối đa 100k, 0 kết quả sau 100k thì dừng, không nạp thêm. Chỉ bắt đầu sau khi có số đo thật.
+Mọi nguồn kèo dùng chung: bảng kèo (tên, link gốc, tiền/lượt, điều kiện tính lượt), mẫu bài, bộ kiểm tra luật, báo cáo.
 
 ---
 
-## 6. Kế hoạch 7 ngày (BẢN NHÁP, CHƯA GIAO)
+## 4. Công nghệ em chọn (anh không cần biết code)
 
-| Ngày | Mục đích | Đầu ra kiểm tra được |
+| Việc | Công cụ | Vì sao |
 |---|---|---|
-| 1 | Kiểm chứng nhánh A: video gắn sản phẩm có ghi nhận click không | Có/không ghi nhận |
-| 1–2 | Chốt chiến dịch cụ thể cho nhánh B | Tên chiến dịch, điều kiện, tiền mỗi lượt |
-| 3–4 | Chạy động cơ nội dung cho A và B | Số bài đã đăng, click theo từng nhánh |
-| 4 | Quyết định: nhánh nào giữ, nhánh nào bỏ, có chạy ads thử không (theo mục 5) | Bảng quyết định |
-| 5–7 | Dồn bài vào nhánh có click | 1 kết quả được ghi nhận ở ít nhất 1 nhánh |
-
-Không build công cụ nào trước ngày 4. Sau ngày 4 nếu việc làm bài chiếm quá nhiều thời gian của anh (1–2 giờ mỗi ngày) thì em đề xuất công cụ tạo nội dung hàng loạt.
+| Ngôn ngữ | Python | Có sẵn thư viện gọi API, xử lý ảnh/video |
+| Chạy mỗi ngày | GitHub Actions (có sẵn trong kho code này) | Miễn phí cho dự án nhỏ, không cần máy chủ ❓ |
+| Lưu dữ liệu | Tệp CSV/JSON trong kho code | Anh đọc được bằng Excel |
+| Khóa API | Lưu trong phần bí mật của GitHub, không để trong code | An toàn |
+| Đầu ra mỗi ngày | Thư mục `output/YYYY-MM-DD/` gồm video, caption, link, báo cáo | Anh chỉ việc lấy gói bài |
 
 ---
 
-## 7. Lịch sử trả lời của anh (đã chốt)
+## 5. Luật lời/lỗ cho quảng cáo (máy tính tự áp dụng)
+
+```
+Giá click tối đa chịu được = tiền mỗi kết quả × tỉ lệ click ra kết quả (đo từ báo cáo thật)
+```
+- Shopee giả định 2%: ~88đ/click → khuyến nghị **không chạy ads**.
+- Tài chính (ví dụ HDBank 180.000đ, tỉ lệ 1–3%): 1.800–5.400đ/click → có thể dương.
+- Trần lỗ 500k, mỗi lần thử tối đa 100k, 0 kết quả sau 100k thì dừng. Máy chỉ khuyến nghị, người quyết định.
+
+---
+
+## 6. Rủi ro và điều chưa biết (không giấu)
+
+| # | Điều chưa biết | Hậu quả nếu sai | Cách xử |
+|---|---|---|---|
+| 1 | Tài khoản của anh có được cấp AppId/Secret cho Shopee Open API không ❓ | Mô-đun 1, 2, 6 của Shopee không gọi được API | Chuyển sang chế độ nhập CSV từ app/web, workflow vẫn chạy |
+| 2 | Shopee Video không có API đăng ❓ | Bước đăng Shopee Video phải làm tay | Mô-đun 5 xuất "gói bài" sẵn sàng, đăng tay vài chục giây mỗi bài |
+| 3 | TikTok/YouTube bị ép riêng tư khi chưa qua kiểm duyệt app | Đăng tự động không công khai được | Làm kiểm duyệt app sau; trước mắt đăng tay |
+| 4 | Máy em dựng code có truy cập được API thật không ❓ (nhiều trang tra cứu bị chặn mạng) | Em chỉ kiểm thử bằng dữ liệu giả, chưa chạm API thật | Kiểm thử thật chạy trên GitHub Actions khi có khóa |
+| 5 | Chính sách dùng ảnh sản phẩm làm video ❓ | Video bị gỡ | Dùng ảnh từ dữ liệu kèo chính thức; kiểm điều khoản ở ngày 3 |
+| 6 | Hoa Hồng Xtra áp dụng cho Lv.0 thế nào ❓ | Tính lời sai | Máy đọc tỉ lệ thật từ API thay vì tính tay |
+
+---
+
+## 7. Kế hoạch build 7 ngày (mỗi ngày có đầu ra kiểm được)
+
+| Ngày | Xây | Đầu ra kiểm bằng bài test |
+|---|---|---|
+| 1 | Khung dự án + cấu hình + Mô-đun 1 (nhặt kèo: API + CSV dự phòng + chấm điểm) | Nhập 20 kèo mẫu → ra danh sách xếp hạng đúng thứ tự |
+| 2 | Mô-đun 2 (tạo link kèm mã riêng) + Mô-đun 4 (kiểm tra luật) | Bài thiếu nhãn/có từ cấm bị chặn; bài hợp lệ qua |
+| 3 | Mô-đun 3 (kịch bản, caption, ghép video dọc) | Từ 1 kèo ra 1 video 9:16 + caption đúng mẫu |
+| 4 | Mô-đun 6 (báo cáo) | Nhập dữ liệu chuyển đổi mẫu → ra bảng click/đơn/hoa hồng theo bài |
+| 5 | Mô-đun 7 (tự điều chỉnh + máy tính hòa vốn) | Cho số mẫu → ra đúng quyết định giữ/bỏ/khuyến nghị ads |
+| 6 | Mô-đun 5 (gói bài, lịch) + Mô-đun 8 (điều phối, nhật ký) | Chạy 1 lệnh ra đủ `output/ngày/` |
+| 7 | Chạy thử toàn bộ, sửa lỗi, viết hướng dẫn dùng bằng tiếng Việt | Chạy hết luồng 2 ngày liên tiếp bằng dữ liệu mẫu không lỗi |
+
+Khi có khóa API thật, bật chế độ thật thay chế độ dữ liệu mẫu.
+
+---
+
+## 8. Lịch sử trả lời của anh (đã chốt)
 
 | # | Nội dung | Ảnh hưởng |
 |---|---|---|
-| 1 | Tài khoản Shopee Affiliate đã duyệt | Nhánh A có vé vào cửa |
-| 2 | X ít view, FB/TikTok là cá nhân, X khó chạy Shopee VN | Chưa có khán giả, phải tìm nơi người xem có sẵn |
-| 3 | Mục tiêu 7 ngày: 1 đơn/lượt ghi nhận | Mốc đo kết quả |
-| 4 | 1–2 giờ mỗi ngày | Tối đa vài bài/ngày |
-| 5 | Không lộ mặt, không lộ giọng; ads/video/ảnh đều được | Làm nội dung ẩn danh |
-| 6 | Ngân sách ads tối đa ~500k, không chấp nhận lỗ không kiểm soát | Mục 5 |
-| 7 | Tài chính VN hợp pháp, crypto VN sắp có sàn, cần đa dạng để hoa hồng cao | Kiến trúc đa nhánh này |
-| 8 | Không giao việc khi chưa có đánh giá tổng quan | Mục 6 giữ ở dạng nháp |
+| 1 | Shopee Affiliate đã duyệt; có Shopee Video, Hành Trình Nhà Sáng Tạo Lv.0 | Có tài khoản nguồn kèo |
+| 2 | X ít view; FB/TikTok là cá nhân | Không dựa vào khán giả sẵn có |
+| 3 | 1–2 giờ/ngày; không lộ mặt, không lộ giọng | Nội dung ẩn danh, ít thao tác tay |
+| 4 | Ads tối đa ~500k, không chịu lỗ không kiểm soát | Mục 5 |
+| 5 | Tài chính VN hợp pháp, crypto VN sắp có sàn, cần đa dạng | Mục 3 |
+| 6 | **7 ngày để dựng workflow tự động nhiều nhất có thể, không bắt buộc ra đơn** | **Kiến trúc v5** |
 
 ---
 
-## 8. ĐÁNH GIÁ TỔNG QUAN
+## 9. ĐÁNH GIÁ TỔNG QUAN
 
-| Mắt xích | Trạng thái |
-|---|---|
-| Có vé vào nhánh A (tài khoản duyệt, đăng được video) | ✅ |
-| Gắn sản phẩm có ghi nhận hoa hồng, video có người xem, người xem mua | ❓ Chưa có bằng chứng |
-| Nhánh B có chiến dịch hợp pháp, tiền mỗi lượt lớn | ✅ Số liệu có, ❓ chưa qua duyệt publisher |
-| Crypto VN, forex nước ngoài | Không ra kết quả trong 7 ngày |
-| Lỗ tiền | Không lỗ nếu không chạy ads; ads chỉ khi có số đo |
-
-**Kết luận:** kiến trúc đa nhánh có đường ra kết quả thật. Nhánh B tăng khả năng tiền lớn, nhánh A là đường nhanh nhất để thử. Em không đưa xác suất vì chưa có dữ liệu đo.
+- **Có làm ra kết quả thật trong 7 ngày không?** Có, theo định nghĩa của anh: một workflow chạy từ đầu đến cuối, có bài kiểm tra tự động cho từng mô-đun. Em kiểm chứng được bằng dữ liệu mẫu ngay trong máy em.
+- **Chưa kiểm chứng được:** gọi API thật (cần khóa của anh và môi trường có mạng ra ngoài), đăng bài tự động công khai (bị khóa bởi kiểm duyệt app và Shopee Video chưa thấy API).
+- **Tự động hóa:** 7 trên 8 mô-đun chạy hoàn toàn tự động; bước đăng bài là chỗ còn thủ công.
+- **Pháp lý:** mọi bài đều qua bộ kiểm tra nhãn quảng cáo; forex/crypto nước ngoài không đưa vào.
