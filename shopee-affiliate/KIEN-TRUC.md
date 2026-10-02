@@ -1,6 +1,6 @@
 # KIẾN TRÚC DỰ ÁN SHOPEE AFFILIATE (7 NGÀY)
 
-> Phiên bản: v2.3 (G2: Shopee Video đăng được, đang đo). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
+> Phiên bản: v2.4 (thêm so sánh hướng tài chính + phát hiện ads Shopee Video). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
 > Quy tắc: bước nào không ra hành động cụ thể thì bị loại.
 
 ---
@@ -161,3 +161,32 @@ Biết 2 thứ bằng số thật: (a) video có lượt xem không, (b) gắn s
 | Có xem nhưng báo cáo affiliate không ghi click | Link gắn trong video không tính hoa hồng, dừng kênh này, em tìm cách khác |
 
 Chi phí thí nghiệm: 0 đồng.
+
+
+---
+
+## 10. HƯỚNG KHÁC ĐÃ XEM XÉT: AFFILIATE TÀI CHÍNH
+
+Anh đề cập: affiliate tài chính (thẻ, vay, mở tài khoản chứng khoán/sàn...) "khá ổn". Em đưa vào so sánh, chưa loại, chưa chọn.
+
+| Tiêu chí | Shopee | Tài chính |
+|---|---|---|
+| Tiền mỗi lượt | Nhỏ | Lớn hơn nhiều (chưa xác minh) |
+| Ads có lời | Khó với món rẻ | Dễ dương hơn |
+| Điều kiện ra tiền | Người mua đặt hàng | Người dùng hoàn tất đăng ký/xác minh, chậm hơn |
+| Quảng cáo | Có ads của Shopee Video | Nhiều nền tảng hạn chế (chưa xác minh) |
+| Rủi ro pháp lý/uy tín | Thấp | Cao hơn |
+| Khả năng có kết quả trong 7 ngày | Cao hơn | Thấp hơn |
+
+### Điều kiện để tài chính được vào kế hoạch (thiếu một ý là KHÔNG làm)
+1. Có tên **chương trình cụ thể** và trang đăng ký (anh gửi, em không tự bịa).
+2. Biết **tiền mỗi lượt** và **điều kiện được tính** (vd: người dùng phải làm gì mới được trả).
+3. Biết **quy định quảng bá** (được đăng ở đâu, có chạy ads được không).
+4. Chương trình được cấp phép hợp pháp ở Việt Nam. Không quảng bá app vay lãi cao, sàn không giấy phép, hay thứ gì có dấu hiệu lừa đảo.
+
+Nếu đủ 4 ý, em lập thêm một nhánh thí nghiệm song song. Nếu thiếu, tài chính bị gạt khỏi kế hoạch 7 ngày.
+
+### Phát hiện từ ảnh Live & Video (Shopee Creator)
+- "Dịch Vụ Hiển Thị Video" (nhãn AD, tăng 28% lưu lượng): ads trong Shopee. **Chưa bấm, chưa biết giá**, phải tính theo mục 8 trước.
+- "Hoa Hồng Xtra": anh chụp lại để biết món nào được cộng hoa hồng.
+- Thống kê 7 ngày đều 0 (đúng với tài khoản mới).
