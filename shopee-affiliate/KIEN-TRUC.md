@@ -1,6 +1,6 @@
 # KIẾN TRÚC DỰ ÁN SHOPEE AFFILIATE (7 NGÀY)
 
-> Phiên bản: v2.4 (thêm so sánh hướng tài chính + phát hiện ads Shopee Video). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
+> Phiên bản: v3 (em tự tra số liệu thật, tính lời lỗ, chia việc rõ em/anh). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
 > Quy tắc: bước nào không ra hành động cụ thể thì bị loại.
 
 ---
@@ -190,3 +190,58 @@ Nếu đủ 4 ý, em lập thêm một nhánh thí nghiệm song song. Nếu thi
 - "Dịch Vụ Hiển Thị Video" (nhãn AD, tăng 28% lưu lượng): ads trong Shopee. **Chưa bấm, chưa biết giá**, phải tính theo mục 8 trước.
 - "Hoa Hồng Xtra": anh chụp lại để biết món nào được cộng hoa hồng.
 - Thống kê 7 ngày đều 0 (đúng với tài khoản mới).
+
+
+---
+
+## 11. SỐ LIỆU THẬT EM TỰ TRA (nguồn là bài tổng hợp trên mạng, chưa phải tài liệu gốc của Shopee, cần đối chiếu với màn hình tài khoản của anh)
+
+### 11.1 Shopee
+| Mục | Số tra được |
+|---|---|
+| Hoa hồng Shopee Video | ~1.58–3.68% (đơn trực tiếp), ~1.28–2.55% (đơn gián tiếp) |
+| Hoa hồng tối đa theo ngành | đến ~11%, trần ~70.000đ/đơn |
+| Giá trung bình đơn từ video | ~150.000–200.000đ |
+| Cookie | 7 ngày qua app, 30 ngày qua web |
+| Giữ đơn trước khi trả | ~15 ngày để tránh hủy/hoàn |
+| Trả tiền | Đối soát 2 đợt/tháng, tiền về khoảng ngày 25–30; điều kiện hoa hồng trên 10.000đ |
+| Quảng cáo | Không cấm hoàn toàn, nhưng cấm quảng cáo clickbait/sai lệch và vi phạm chính sách nền tảng quảng cáo |
+| Thuật toán Shopee Video | Video mới được phát ngẫu nhiên cho nhóm người xem thử; sau đó xét watch time, tương tác 30 phút đầu, tỉ lệ bấm tag sản phẩm |
+
+### 11.2 Phép tính lời/lỗ Shopee (giả định tỉ lệ click ra đơn 2%, CHƯA đo)
+- Món 175.000đ × 2.5% = khoảng **4.400đ hoa hồng mỗi đơn**
+- Mỗi click mang về: 4.400đ × 2% = khoảng **88đ**
+- Giá click ads thông thường cao hơn 88đ rất nhiều → **ads cho món Shopee giá thấp: LỖ. Quyết định: KHÔNG chạy ads cho Shopee**, trừ khi ads Shopee Video báo giá mỗi click dưới ~88đ (rất khó).
+- Shopee chỉ làm **miễn phí 0 đồng**. Lời hay không phụ thuộc có ra đơn, vì chi phí là 0 nên không thể lỗ tiền.
+
+### 11.3 Tài chính (từ Ecomobi/Accesstrade, tra bằng search, chưa mở được trang gốc)
+| Chiến dịch | Hoa hồng tra được |
+|---|---|
+| HDBank thẻ tín dụng | 180.000đ/thẻ xác thực thành công |
+| VPBank thẻ tín dụng | ~650.000đ/lượt (CPO) |
+| VPBank NEO | ~64.000–72.000đ/lượt hoàn tất eKYC hoặc kích hoạt |
+| Tài khoản chứng khoán | ~500.000–2.000.000đ/lượt |
+
+### 11.4 Phép tính lời/lỗ tài chính (giả định HDBank 180.000đ, tỉ lệ click ra thẻ 1–3%, CHƯA đo)
+- Mỗi click mang về: 1.800đ (1%) đến 5.400đ (3%)
+- Giá click ads thông thường khoảng 1.000–3.000đ (em chưa xác minh) → có thể hòa vốn hoặc lời nhẹ, **toán học dương hơn Shopee nhiều**
+- Nhưng: cần đăng ký publisher ở Accesstrade/Ecomobi, nền tảng ads thường hạn chế quảng cáo tài chính, và chỉ được tính khi người dùng hoàn tất xác minh nên khó có kết quả trong 7 ngày.
+
+### 11.5 Kết luận
+| Nhánh | Chi phí | Ra kết quả 7 ngày | Ads có lời |
+|---|---|---|---|
+| A. Shopee Video, miễn phí | 0đ | Có khả năng | Không dùng ads |
+| B. Tài chính qua Accesstrade/Ecomobi | 0đ để đăng ký, ads tùy chọn | Thấp hơn | Có thể, cần đo |
+
+**Chạy song song cả hai, nhưng chỉ đặt cược tiền vào B nếu đo ra số dương.**
+
+## 12. CHIA VIỆC (em làm gì, anh làm gì)
+
+| Việc | Em | Anh |
+|---|---|---|
+| Tra chính sách, số liệu, tính lời lỗ | ✅ Em | |
+| Viết kịch bản, chữ trên video, caption, hashtag | ✅ Em | |
+| Lọc sản phẩm theo tiêu chí | ✅ Em, khi có danh sách | Lấy danh sách từ app (em không đăng nhập được tài khoản của anh) |
+| Quay/ghép video, bấm đăng | | Anh (cần tài khoản của anh) |
+| Đăng ký Accesstrade/Ecomobi | | Anh (cần danh tính của anh, em không làm thay) |
+| Đọc số liệu, ra quyết định giữ/bỏ | ✅ Em đề xuất | Anh chụp số liệu |
