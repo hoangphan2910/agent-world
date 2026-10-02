@@ -1,6 +1,6 @@
 # KIẾN TRÚC DỰ ÁN SHOPEE AFFILIATE (7 NGÀY)
 
-> Phiên bản: v3 (em tự tra số liệu thật, tính lời lỗ, chia việc rõ em/anh). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
+> Phiên bản: v3.1 (mở rộng tài chính trong nước + nước ngoài, lọc hợp pháp). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
 > Quy tắc: bước nào không ra hành động cụ thể thì bị loại.
 
 ---
@@ -245,3 +245,74 @@ Nếu đủ 4 ý, em lập thêm một nhánh thí nghiệm song song. Nếu thi
 | Quay/ghép video, bấm đăng | | Anh (cần tài khoản của anh) |
 | Đăng ký Accesstrade/Ecomobi | | Anh (cần danh tính của anh, em không làm thay) |
 | Đọc số liệu, ra quyết định giữ/bỏ | ✅ Em đề xuất | Anh chụp số liệu |
+
+
+---
+
+## 13. TÀI CHÍNH: BỘ LỌC HỢP PHÁP (đa dạng nhưng KHÔNG đụng vùng đỏ)
+
+Nguồn tra bằng search, là báo/bài tổng hợp, chưa phải văn bản luật gốc. Trước khi làm thật anh nên hỏi kế toán/luật sư vì em không phải nguồn tư vấn pháp lý.
+
+| Loại | Màu | Lý do |
+|---|---|---|
+| Forex, sàn ngoại hối | 🔴 LOẠI | Ngân hàng Nhà nước chưa cấp phép cho ai kinh doanh Forex ở VN. Người rủ rê có thể bị xử phạt, nặng thì hình sự (đa cấp) |
+| Sàn tiền mã hóa (Binance, Bybit, Coinbase...) giới thiệu cho người Việt | 🔴 LOẠI | Nghị định 284/2026/NĐ-CP (hiệu lực 1/9/2026) phạt quảng cáo tài sản mã hóa chưa cấp phép: cá nhân khoảng 90–100 triệu đồng |
+| App vay lãi cao, đầu tư hứa lời | 🔴 LOẠI | Rủi ro lừa đảo, gây hại người xem |
+| Thẻ tín dụng, tài khoản ngân hàng, eKYC của **ngân hàng VN có giấy phép** (HDBank, VPBank...) | 🟢 LÀM ĐƯỢC | Sản phẩm hợp pháp, nhận qua Ecomobi/Accesstrade |
+| Mở tài khoản chứng khoán ở **công ty chứng khoán có giấy phép** | 🟢 LÀM ĐƯỢC | Hợp pháp, hoa hồng cao (khoảng 500k–2 triệu/lượt theo tra cứu, chưa xác minh) |
+| Dịch vụ chuyển tiền/ngân hàng số quốc tế (Wise, Revolut) | 🟡 LÀM ĐƯỢC NẾU đúng thị trường | Chương trình hợp pháp, nhưng thường chỉ tính khi người đăng ký ở đúng quốc gia và đủ điều kiện |
+
+### Nước ngoài: số liệu tra được
+| Chương trình | Hoa hồng tra được |
+|---|---|
+| Wise | ~$12.7 (cá nhân) đến ~$63 (doanh nghiệp), cookie 365 ngày |
+| Revolut | ~$10–50 mỗi đăng ký đủ điều kiện, cookie 30 ngày, trả hằng tháng |
+
+Điểm yếu thật của hướng nước ngoài:
+- Anh cần khán giả đúng nước đó, nội dung tiếng Anh. X của anh hiện ít view, nên 7 ngày rất khó ra lượt.
+- Nền tảng ads nào cũng hạn chế quảng cáo tài chính.
+- Thu nhập từ nước ngoài vẫn là thu nhập chịu thuế ở VN (cá nhân kinh doanh dưới 100 triệu/năm theo tra cứu thì không phải nộp GTGT/TNCN, anh cần kế toán xác nhận).
+
+### XẾP HẠNG TỐI ƯU LỢI NHUẬN × KHẢ NĂNG LÀM TRONG 7 NGÀY
+| Hạng | Nhánh | Tiền mỗi lượt | Chi phí | Khả năng có kết quả 7 ngày |
+|---|---|---|---|---|
+| 1 | Shopee Video miễn phí | nhỏ (vài nghìn) | 0đ | Cao nhất |
+| 2 | Ngân hàng/chứng khoán VN có phép qua Ecomobi/Accesstrade | trung bình đến lớn (64k–2 triệu) | 0đ để đăng ký | Trung bình, phải qua duyệt publisher |
+| 3 | Wise/Revolut nước ngoài | lớn ($10–63) | 0đ | Thấp trong 7 ngày (cần khán giả tiếng Anh) |
+| ✖ | Forex, crypto, app vay | — | — | **Không làm** |
+
+**Quyết định:** chạy hạng 1 ngay hôm nay, mở hạng 2 song song (anh đăng ký), hạng 3 để sau ngày 7 nếu hạng 1–2 có tín hiệu.
+
+---
+
+## 14. KỊCH BẢN 3 VIDEO ĐẦU (anh chỉ việc chọn món thật trong app rồi quay/ghép)
+
+Quy tắc chung cho cả 3 (để không bị gỡ video, không mất hoa hồng):
+- Chỉ nói đúng điều có trong trang sản phẩm. Không viết "tốt nhất", "đảm bảo", "100%".
+- Không dùng logo Shopee, không chèn link ngoài vào video.
+- Dùng ảnh/clip sản phẩm lấy từ chính trang sản phẩm hoặc tự quay. Không dùng video của người khác.
+- 3 giây đầu phải có chữ lớn gây tò mò (thuật toán xét giữ chân người xem ở 3 giây đầu).
+- Chọn món: giá 100–250k, nhiều lượt bán, đánh giá trên 4.5 sao, có voucher.
+
+**Video 1: Dụng cụ cà phê/pha chế** (hợp ảnh cafe của anh)
+- Chữ 0–3 giây: "Pha cà phê ở nhà mà không cần máy đắt tiền"
+- 3–12 giây: 3–4 ảnh món từ nhiều góc, mỗi ảnh một dòng chữ ngắn nêu 1 điểm có thật trong mô tả (kích thước, chất liệu, cách dùng)
+- 12–18 giây: "Giá khoảng [GIÁ], bấm giỏ hàng để xem"
+- Caption: "Dụng cụ pha cà phê giá mềm cho dân tại gia. Xem giá và voucher ở giỏ hàng"
+- Hashtag: #cafe #phacafe #cafetainha #shopee #review
+
+**Video 2: Đồ ăn/hộp cơm/bình giữ nhiệt** (hợp ảnh daily food)
+- Chữ 0–3 giây: "Mang cơm đi làm khỏi lo nguội"
+- 3–12 giây: ảnh món + 3 điểm có thật (dung tích, chất liệu, có ngăn không)
+- 12–18 giây: "Đang có voucher, xem giỏ hàng"
+- Caption: "Hộp cơm/bình giữ nhiệt cho dân văn phòng, xem giá hiện tại ở giỏ hàng"
+- Hashtag: #comvanphong #dailyfood #bepnhoxinh #shopee
+
+**Video 3: Phụ kiện anime/decor bàn** (hợp ảnh anime, đời sống)
+- Chữ 0–3 giây: "Góc bàn làm việc đổi vibe chỉ với [GIÁ]"
+- 3–12 giây: ảnh món đặt trong bối cảnh bàn làm việc, thêm 2 dòng chữ mô tả
+- 12–18 giây: "Xem chi tiết trong giỏ hàng"
+- Caption: "Phụ kiện decor bàn hợp dân mê anime. Giá và voucher ở giỏ hàng"
+- Hashtag: #anime #decorban #goclamviec #shopee
+
+Anh gửi em tên 3 món thật đã chọn, em chỉnh chữ và caption cho đúng món.
