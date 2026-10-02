@@ -1,7 +1,31 @@
 # KIẾN TRÚC DỰ ÁN SHOPEE AFFILIATE (7 NGÀY)
 
-> Phiên bản: v3.3 (sửa phần forex: tách người Việt / người nước ngoài, ghi rõ chỗ chưa chắc). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
+> Phiên bản: v3.4 (thêm đánh giá tổng quan, khóa việc giao). Trước đó v3.3 (sửa phần forex: tách người Việt / người nước ngoài, ghi rõ chỗ chưa chắc). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
 > Quy tắc: bước nào không ra hành động cụ thể thì bị loại.
+
+
+> ⛔ **TRẠNG THÁI: CHƯA GIAO VIỆC NÀO CHO ANH.** Mọi mục "việc của anh / việc cần làm" bên dưới là bản nháp kiến trúc, chỉ có hiệu lực SAU KHI anh duyệt đánh giá tổng quan (mục 0).
+> Chưa build gì.
+
+## 0. ĐÁNH GIÁ TỔNG QUAN (kiến trúc có ra được kết quả thật không?)
+
+Mục tiêu: 1 đơn Shopee được ghi nhận trong 7 ngày, chi phí 0 đồng.
+
+| Mắt xích | Bằng chứng hiện có | Trạng thái |
+|---|---|---|
+| Tài khoản affiliate được duyệt | Anh xác nhận | ✅ |
+| Tài khoản đăng được Shopee Video | Ảnh có nút Đăng video, Kênh Người sáng tạo | ✅ |
+| Gắn sản phẩm vào video có tính hoa hồng | Chưa thấy tận mắt nút gắn sản phẩm; bài tra cứu nói phải bật tính năng gắn link | ❓ Chưa biết |
+| Video có người xem | Bài tra cứu: video mới được phát thử ngẫu nhiên, sau đó xét giữ chân và tương tác. Tài khoản có 12 người theo dõi | ❓ Chưa biết |
+| Người xem bấm và mua | Chưa có dữ liệu | ❓ Chưa biết |
+| Lỗ tiền | Làm miễn phí, không ads | ✅ Không lỗ tiền |
+| Có tiền về trong 7 ngày | Shopee giữ đơn khoảng 15 ngày | ❌ Không (mục tiêu đã chốt là đơn ghi nhận) |
+
+**Kết luận:** kiến trúc có đường đi tới kết quả thật và không tốn tiền, nhưng 3 mắt xích giữa vẫn chưa có bằng chứng. Em không đưa xác suất vì em không có dữ liệu để tính, nói con số là bịa. Cả 3 mắt xích chỉ kiểm chứng được bằng đăng thử video. Nếu mắt xích nào đứt thì kiến trúc đổi hướng theo bảng ở mục 9.
+
+Đã gạt khỏi kế hoạch 7 ngày: ads cho Shopee (lỗ), forex/crypto (pháp lý), tài chính nước ngoài (cần khán giả tiếng Anh). Tài chính trong nước giữ làm nhánh phụ chưa kích hoạt.
+
+Không build công cụ nào: chưa chứng minh được kênh ra click.
 
 ---
 
@@ -80,7 +104,7 @@ Lý do chọn: người Việt vào Shopee/nhóm săn sale là để mua. Họ k
 
 ---
 
-## 6. Việc của anh NGAY BÂY GIỜ (10 phút, đây là cổng G2)
+## 6. (CHƯA GIAO, bản nháp) Việc kiểm tra cổng G2
 
 1. Mở tài khoản Shopee Affiliate (app hoặc web), tìm xem có mục **đăng video / Shopee Video gắn link sản phẩm** không. Chụp màn hình gửi em.
 2. Đọc **điều khoản chương trình Affiliate**, tìm đoạn nói về: đăng link ở đâu được, chạy quảng cáo có được không. Chụp hoặc chép đoạn đó gửi em.
@@ -148,7 +172,7 @@ Tài khoản: chovietsaigon (12 người theo dõi, 0 lượt thích, đã có S
 ### Mục đích
 Biết 2 thứ bằng số thật: (a) video có lượt xem không, (b) gắn sản phẩm có ghi nhận hoa hồng affiliate không.
 
-### Các bước (anh làm)
+### Các bước (bản nháp, chưa giao)
 1. Mở **Kênh Người sáng tạo**, chụp màn hình tất cả mục có trong đó (đặc biệt phần thống kê lượt xem, nguồn xem, và nút gắn sản phẩm).
 2. Đăng **3 video ngắn (10–20 giây)**, mỗi video **gắn 1 sản phẩm khác nhau**, nội dung ghép ảnh/clip sản phẩm, không mặt, không giọng. Dùng ảnh/clip của chính sản phẩm hoặc tự quay, không dùng video người khác (nguy cơ bản quyền và bị gỡ).
 3. Sau 48 giờ chụp: lượt xem từng video, nguồn xem (nếu có), và báo cáo click/đơn trong Shopee Affiliate.
