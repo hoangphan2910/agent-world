@@ -1,6 +1,6 @@
 # KIẾN TRÚC DỰ ÁN SHOPEE AFFILIATE (7 NGÀY)
 
-> Phiên bản: v3.1 (mở rộng tài chính trong nước + nước ngoài, lọc hợp pháp). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
+> Phiên bản: v3.2 (thêm dữ liệu Hành Trình Nhà Sáng Tạo từ tài khoản thật). Em đã chọn hướng, anh chỉ cần duyệt hoặc phản đối.
 > Quy tắc: bước nào không ra hành động cụ thể thì bị loại.
 
 ---
@@ -316,3 +316,29 @@ Quy tắc chung cho cả 3 (để không bị gỡ video, không mất hoa hồn
 - Hashtag: #anime #decorban #goclamviec #shopee
 
 Anh gửi em tên 3 món thật đã chọn, em chỉnh chữ và caption cho đúng món.
+
+
+---
+
+## 15. DỮ LIỆU THẬT TỪ TÀI KHOẢN (ảnh "Hành Trình Nhà Sáng Tạo", chụp ngày 2/10/2026)
+
+| Mục | Con số trên màn hình |
+|---|---|
+| Cấp hiện tại | Lv.0 |
+| Yêu cầu lên Lv.1 | Số ngày hoạt động **0/5**, đơn hàng hợp lệ **0/1**, phần "Nội dung" sẽ mở sau khi xong 2 mục trên |
+| Chu kỳ xét duyệt tiếp theo | **6/10** (mỗi thứ Ba) |
+| Hoa Hồng Xtra | "Lên đến 15%", Shopee ghi *tất cả KOL affiliate đều có cơ hội nhận* |
+| Đăng tải Shopee Video | Tất cả nhà sáng tạo nội dung đều có cơ hội |
+| Giỏ hàng Shopee Live | Lv.0 và Lv.1: tối đa 100 sản phẩm, Lv.2: 500 sản phẩm |
+| Livestream trên máy tính | Khóa, mở ở Lv.2 |
+
+### Điều rút ra
+1. **Mục tiêu 1 đơn của mình trùng với yêu cầu lên cấp.** Đơn hợp lệ đầu tiên vừa là kết quả 7 ngày, vừa là điều kiện mở Lv.1. Đây là lý do thật để không bỏ cuộc giữa chừng.
+2. **Hoa hồng Xtra lên đến 15%** cao hơn nhiều mức 1.58–3.68% em tra trước đó. Đây có thể là chỗ tăng lợi nhuận lớn nhất. Em CHƯA biết: món nào được Xtra, và Xtra áp dụng cho Lv.0 ra sao. Phải tra trong tài khoản (xem bước tiếp theo).
+3. **Cần 5 ngày hoạt động.** Em chưa biết "ngày hoạt động" tính theo gì (đăng video, có lượt xem, hay có thao tác). Em giả định là mỗi ngày có đăng video. Nếu bắt đầu từ hôm nay (thứ Sáu 2/10), đủ 5 ngày vào thứ Ba 6/10, đúng ngày xét duyệt.
+4. Livestream và giỏ hàng 500 sản phẩm không cần lúc này (khóa ở Lv.2, và mục tiêu 7 ngày không cần).
+
+### Kế hoạch điều chỉnh
+- Hôm nay (thứ Sáu 2/10) = Ngày 1: đăng ít nhất 1 video để bắt đầu đếm ngày hoạt động.
+- Mỗi ngày đến thứ Ba 6/10: đăng ít nhất 1 video, ưu tiên 2–3.
+- Ưu tiên món **có nhãn Hoa Hồng Xtra** khi chọn sản phẩm (nếu app hiển thị).
