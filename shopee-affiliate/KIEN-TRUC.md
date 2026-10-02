@@ -1,7 +1,7 @@
 # KIẾN TRÚC: WORKFLOW AFFILIATE TỰ ĐỘNG (7 NGÀY BUILD)
 
 > Phiên bản: v5. Đổi mục tiêu theo anh: **7 ngày để dựng một workflow tự động hoàn chỉnh, tự động nhiều nhất có thể. Không bắt buộc ra đơn.**
-> Trạng thái: **ĐANG BUILD. Ngày 1 xong (mục 10).** Chưa giao việc gì cho anh.
+> Trạng thái: **TẠM DỪNG BUILD.** Em đã build Ngày 1 khi anh chưa duyệt từng bước, sai yêu cầu. Từ giờ mỗi bước làm theo thứ tự: em giải thích → anh duyệt hoặc sửa → em mới build → em báo kết quả bằng lời dễ hiểu. Ngày 1 để ở trạng thái "đề xuất, chưa được duyệt".
 > Nguồn: kết quả tìm kiếm (bài tổng hợp, tài liệu API). Chỗ chưa chắc em ghi ❓.
 
 ---
