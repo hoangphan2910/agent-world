@@ -1,7 +1,7 @@
 # KIẾN TRÚC: WORKFLOW AFFILIATE TỰ ĐỘNG (7 NGÀY BUILD)
 
 > Phiên bản: v5. Đổi mục tiêu theo anh: **7 ngày để dựng một workflow tự động hoàn chỉnh, tự động nhiều nhất có thể. Không bắt buộc ra đơn.**
-> Trạng thái: **TẠM DỪNG BUILD.** Em đã build Ngày 1 khi anh chưa duyệt từng bước, sai yêu cầu. Từ giờ mỗi bước làm theo thứ tự: em giải thích → anh duyệt hoặc sửa → em mới build → em báo kết quả bằng lời dễ hiểu. Ngày 1 để ở trạng thái "đề xuất, chưa được duyệt".
+> Trạng thái: **DỪNG BUILD (3/10/2026): chưa có dữ liệu thật đầu vào.** Theo luật của anh, kiến trúc chưa ra được kết quả thật thì không build thêm. Chi tiết cũ: **TẠM DỪNG BUILD.** Em đã build Ngày 1 khi anh chưa duyệt từng bước, sai yêu cầu. Từ giờ mỗi bước làm theo thứ tự: em giải thích → anh duyệt hoặc sửa → em mới build → em báo kết quả bằng lời dễ hiểu. Ngày 1 để ở trạng thái "đề xuất, chưa được duyệt".
 > Nguồn: kết quả tìm kiếm (bài tổng hợp, tài liệu API). Chỗ chưa chắc em ghi ❓.
 
 ---
@@ -147,3 +147,11 @@ Dữ liệu mẫu `data/offers_sample.csv` là dữ liệu GIẢ (tên có chữ
 
 
 **Nhận định thẳng (sau phản hồi của anh):** Ngày 1 chạy trên 20 món giả và API chưa chạm thật nên chưa chứng minh được gì về thế giới thật. Mọi mô-đun sau cũng sẽ "ảo" nếu không có dữ liệu thật đi vào. Quy tắc mới: **không build mô-đun nào tiếp cho đến khi có dữ liệu thật đầu vào**, và mỗi bước phải cho ra kết quả trên dữ liệu thật.
+
+
+## 11. KẾT LUẬN DỪNG (3/10/2026)
+
+- Em hỏi cách đưa món thật vào workflow (dán 10 món, khóa Open API, hoặc file xuất). Anh không chọn đường nào.
+- Không có dữ liệu thật, mọi mô-đun chỉ chạy trên dữ liệu giả, không chứng minh được gì về thế giới thật.
+- Quyết định: **dừng build**. Ngày 1 giữ nguyên, ghi rõ là chỉ chạy trên dữ liệu giả.
+- Điều kiện mở lại: có dữ liệu thật vào mô-đun 1. Từ đó tiếp tục theo quy trình giải thích → duyệt → build → báo kết quả.
